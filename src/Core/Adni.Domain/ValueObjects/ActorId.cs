@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Adni.Domain.ValueObjects
 {
-    internal class ActorId
+    public class ActorId
     {
-        private readonly Guid _value;
+        public Guid _value;
+        //public readonly Guid _value;
 
         public ActorId(Guid value)
         {

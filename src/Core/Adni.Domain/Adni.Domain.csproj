@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Test\Adni.DomainTest\Adni.DomainTest.csproj" />
-    <ProjectReference Include="..\Adni.Framework\Adni.Framework.csproj" />
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.4.0" />
   </ItemGroup>
 
 </Project>
