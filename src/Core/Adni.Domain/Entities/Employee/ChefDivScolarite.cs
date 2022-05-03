@@ -4,12 +4,13 @@ using System.Text;
 using Adni.Domain;
 using Adni.Domain.ValueObjects;
 
-namespace Adni.Domain.Entities
+namespace Adni.Domain.Entities.Employies
 {
-    public class ChefDivScolarite : Employee, Interfaces.ICommandEmployee, Interfaces.IQueryEmployee , Interfaces.IDelEmployee
+    public class ChefDivScolarite : Employee
     {
-        private Guid Id { get; set; }
-        private bool IsOnline = false;
+        public Guid EmployeeId { get; set; }
+        public bool IsOnline { get; set; }
+        public string Position { get; private set; }
 
         //contruction of CDS
         public ChefDivScolarite(Guid idValue)
@@ -17,34 +18,8 @@ namespace Adni.Domain.Entities
             if (idValue == default)
                 throw new ArgumentNullException("L'identifiant ne peut etre vide", nameof(idValue));
 
-            Id = idValue ;
-        }
-
-
-        //Behavior refering to make command or query to an employee
-        public void AddEmployee()
-        {
-
-        }
-        public void UpdateEmployee(Guid idValue)
-        {
-
-        }
-        public void GetEmployee(Guid idValue)
-        {
-
-        }
-        public void GetAllEmployees()
-        {
-
-        }
-        public bool DeleEmployee(Guid idValue)
-        {
-            if (idValue == default)
-                throw new ArgumentNullException("L'identifiant ne peut etre vide", nameof(idValue));
-
-            return true;
-            
+            EmployeeId = idValue ;
+            this.Position = "CDD";
         }
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Adni.Data.Migrations
 {
-    [DbContext(typeof(CompanyDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20220419032608_InitialCreate")]
     partial class InitialCreate
     {

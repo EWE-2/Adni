@@ -3,29 +3,21 @@ using System.Collections.Generic;
 using Adni.Domain;
 
 
-namespace Adni.Domain.Entities
+namespace Adni.Domain.Entities.Employies
 {
-    public class ChefServStage : Employee, Interfaces.IQueryEmployee
+    public class ChefServStage : Employee
     {
-        private Guid Id { get; set; }
-        private bool IsOnline = false;
+        public Guid EmployeeId { get; set; }
+        public bool IsOnline { get; set; }
+        public string Position { get; private set; }
 
         public ChefServStage(Guid idValue)
         {
             if (idValue == default)
                 throw new ArgumentNullException("L'identifiant ne peut etre vide ", nameof(idValue));
-            Id = idValue;
+            EmployeeId = idValue;
+            this.Position = "CSS";
         }
 
-        //Behavior to get informations of employees
-        public void GetAllEmployees()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetEmployee(Guid idValue)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -4,14 +4,17 @@ using System.Text;
 
 namespace Adni.Domain.Entities
 {
-    public abstract class Employee
+    public class Employee
     {
-        public string Firstname { get; private set; }
-        public string Lastname {get; private set;}
-        public string Location {get; private set;}
-        public string Phonenumber {get; private set;}
-        public string WhatsappNumber {get; private set;}
-        public DateTime DoB {get; private set;}
+        public string Firstname { get; set; }
+        public string Lastname {get; set;}
+        public string Location {get; set;}
+        public string Phonenumber {get; set;}
+        public string WhatsappNumber {get; set;}
+        public DateTime DoB {get; set;}
+        public Guid EmployeeId { get; set; }
+        public bool IsOnline { get; set; }
+        public string Position { get; set; }
 
         //methods to modify personnal informations
         //public SetFirstname(string firstname) => Firstname = firstname;

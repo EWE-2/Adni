@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Adni.Application\Adni.Application.csproj" />
     <ProjectReference Include="..\..\Core\Adni.Domain\Adni.Domain.csproj" />
   </ItemGroup>
 

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Adni.Data.Migrations
 {
-    [DbContext(typeof(CompanyDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class CompanyDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

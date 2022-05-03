@@ -5,16 +5,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.15">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.6.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\Adni.Application\Adni.Application.csproj" />
     <ProjectReference Include="..\..\Core\Adni.Domain\Adni.Domain.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Adni.Data\Adni.Data.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Adni.Shared\Adni.Shared.csproj" />
   </ItemGroup>
 
 </Project>

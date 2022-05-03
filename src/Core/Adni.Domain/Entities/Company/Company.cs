@@ -9,15 +9,17 @@ namespace Adni.Domain.Entities
     //[BindProperty]
     public class Company
     {
-        public Guid Id { get; private set; }
-        public Guid ProspectorId { get; private set; }
-        public string CompanyName { get; private set; }
-        public string? CompanyDescription { get; private set; }
-        public string? CompanyCigle { get; private set; }
-        public string CompanyPhonenumber { get; private set; }
-        public string? CompanyEmail { get; private set; }
-        public string CompanyLocation { get; private set; }
-        public string CompanyFocal { get;private set; }
+        public Guid Id { get; /*private*/ set; }
+        public Guid ProspectorId { get; /*private*/ set; }
+        //public Guid CompanyListId { get; /*private*/ set; }
+        public string CompanyName { get; /*private*/ set; }
+        public string? CompanyDescription { get; /*private*/ set; }
+        public string? CompanyCigle { get; /*private*/ set; }
+        public string CompanyPhonenumber { get; /*private*/ set; }
+        public string? CompanyEmail { get; /*private*/ set; }
+        public string CompanyLocation { get; /*private*/ set; }
+        public string CompanyFocal { get;/*private*/ set; }
+        public bool IsConfirmed { get; set; }
 
         public Company(Guid id, Guid prospId)
         {
@@ -40,42 +42,6 @@ namespace Adni.Domain.Entities
         public void SetCompanyEmail(string? email) => CompanyEmail = email;
         public void SetCompanyLocation(string? location) => CompanyLocation = location;
         public void SetCompanyFocal(string focal) => CompanyFocal = focal;
-
-        public string GetCompanyName()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetCompanyDescription()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetCompanyCigle()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetCompanyPhoneNumber()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetCompanyEmail()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetCompanyLocation()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetCompanyFocal()
-        {
-            throw new NotImplementedException();
-        }
-
         
     }
 }
