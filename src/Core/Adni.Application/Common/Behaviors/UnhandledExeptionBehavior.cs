@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace Adni.Application.Common.Behaviors
 {
     internal class UnhandledExeptionBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+        where TRequest: MediatR.IRequest<TResponse>
     {
         private readonly ILogger<TRequest> _logger;
         public UnhandledExeptionBehavior(ILogger<TRequest> logger)

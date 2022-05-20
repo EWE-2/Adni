@@ -28,7 +28,7 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeCommand
         
         public async Task<Unit> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            var employies = await _context.Employees.FindAsync(request.EmployeeId);
+            var employies = await _context.employees.FindAsync(request.EmployeeId);
 
             if (employies == null)
                 throw new NotFoundException(nameof(Employies), request.EmployeeId);

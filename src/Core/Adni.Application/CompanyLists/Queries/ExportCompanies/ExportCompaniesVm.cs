@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Adni.Application.CompanyLists.Queries.ExportCompanies
 {
-    public class ExportCompaniesVm
+    public class ExportEmployeesVm
     {
 
         public string FileName { get; set; }

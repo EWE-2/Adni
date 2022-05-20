@@ -9,7 +9,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Adni.Application.Common.Behaviors
 {
-    internal class PerformanceBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    internal class PerformanceBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> 
+        where TRequest : IRequest<TResponse>
     {
         private readonly ILogger _logger;
         private readonly Stopwatch _timer;

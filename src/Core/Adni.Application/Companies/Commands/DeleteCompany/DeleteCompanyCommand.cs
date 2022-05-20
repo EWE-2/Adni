@@ -26,10 +26,10 @@ namespace Adni.Application.Companies.Commands.DeleteCompany
 
         public async Task<Unit> Handle(DeleteCompanyCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _context.Companies.FindAsync(request.Id);
+            var entity = await _context.companies.FindAsync(request.Id);
             if (entity == null)
                 throw new NotFoundException(nameof(Companies), request.Id);
-            _context.Companies.Remove(entity);
+            _context.companies.Remove(entity);
             await _context.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;

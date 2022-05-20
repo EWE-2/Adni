@@ -25,7 +25,7 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
 
         public async Task<bool> BeUniqueName(string name, CancellationToken cancellationToken)
         {
-            return await _context.Employees.AllAsync(l => l.Firstname != name);
+            return await _context.employees.AllAsync(l => l.Firstname != name);
         }
     }
 }

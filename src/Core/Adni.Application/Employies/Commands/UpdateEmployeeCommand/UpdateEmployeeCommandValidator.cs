@@ -26,7 +26,7 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeCommand
 
         public async Task<bool> BeUniqueName(string completeName, CancellationToken cancellationToken)
         {
-            return await _context.Employees.AllAsync(l => (l.Firstname+l.Lastname) == completeName);
+            return await _context.employees.AllAsync(l => (l.Firstname+l.Lastname) == completeName);
         }
     }
 }

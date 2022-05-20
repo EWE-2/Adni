@@ -9,20 +9,20 @@ namespace Adni.Application.Common.Exceptions
     {
         public ValidationException(): base("One or more validation failures have occured.")
         {
-            errors = new Dictionary<string, string[]>();
+            Errors = new Dictionary<string, string[]>();
         }
 
         public ValidationException(IEnumerable<ValidationFailure> failures): this()
         {
             var failuresGroups = failures
-                .GroupBy(e => e.PropertyName, e => e.ErroMessage);
+                .GroupBy(e => e.PropertyName, e => e.ErrorMessage);
 
             foreach (var failureGroup in failuresGroups)
             {
                 var PropertyName = failureGroup.Key;
                 var propertyFailures = failureGroup.ToArray();
 
-                Errors.Add(propertyName, propertyFailures);
+                Errors.Add(PropertyName, propertyFailures);
             }
         }
 

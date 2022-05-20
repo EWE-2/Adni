@@ -4,7 +4,7 @@ using System.Text;
 using Adni.Domain;
 using Adni.Domain.ValueObjects;
 
-namespace Adni.Domain.Entities.Employies
+namespace Adni.Domain.Entities
 {
     public class ChefDivScolarite : Employee
     {

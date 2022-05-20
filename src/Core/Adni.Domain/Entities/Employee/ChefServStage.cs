@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Adni.Domain;
 
 
-namespace Adni.Domain.Entities.Employies
+namespace Adni.Domain.Entities
 {
     public class ChefServStage : Employee
     {

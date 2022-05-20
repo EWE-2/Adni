@@ -17,5 +17,6 @@ namespace Adni.Application.Dtos.Company
 
         public IList<CompanyDto> Items { get; set; }
         public Guid Id { get; set; }
+        public string City { get; set; }
     }
 }

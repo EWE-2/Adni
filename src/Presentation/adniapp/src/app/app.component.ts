@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdniHeaderComponent } from './adni-header/adni-header.component';
 
 @Component({
   selector: 'app-root',

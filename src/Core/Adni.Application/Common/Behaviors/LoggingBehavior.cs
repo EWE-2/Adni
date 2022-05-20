@@ -18,7 +18,7 @@ namespace Adni.Application.Common.Behaviors
         public async Task Process(TRequest request, CancellationToken cancellationToken)
         {
             var requestName = typeof(TRequest).Name;
-            _logger.LogInformation("Company request: {@Request}", requestName, request);
+            _logger.LogInformation("Item request: {@Request}", requestName, request);
         }
     }
 }

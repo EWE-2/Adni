@@ -26,7 +26,7 @@ namespace Adni.Application.Companies.Commands.UpdateCompanyDetails
 
         public async Task<bool> BeUniqueName(UpdateCompanyDetailsCommand request)
         {
-            return await _context.Companies.AllAsync(c => c.CompanyName != request.CompanyName);
+            return await _context.companies.AllAsync(c => c.CompanyName != request.CompanyName);
         }
     }
 }

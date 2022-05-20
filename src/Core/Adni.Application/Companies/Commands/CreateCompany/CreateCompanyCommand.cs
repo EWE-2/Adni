@@ -50,7 +50,7 @@ namespace Adni.Application.Companies.Commands.CreateCompany
                 CompanyFocal = request.CompanyFocal,
 
             };
-            _context.Companies.Add(entity);
+            _context.companies.Add(entity);
             await _context.SaveChangesAsync(cancellationToken);
 
             return entity.Id;

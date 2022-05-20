@@ -32,7 +32,7 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand
 
         public async Task<Unit> Handle(UpdateEmployeeInformationsCommand request, CancellationToken cancellationToken)
         {
-            var emplEntity = await _context.Employees.FindAsync(request.EmployeeId);
+            var emplEntity = await _context.employees.FindAsync(request.EmployeeId);
 
             emplEntity.Firstname = request.Firstname;
             emplEntity.Lastname = request.Lastname;

@@ -25,12 +25,12 @@ namespace Adni.Application.Employies.Commands.DeleteEmployeeCommand
         }
         public async Task<Unit> Handle(DeleteEmployeeCommand request, CancellationToken cancellationToken)
         {
-            var emplEntity = await _context.Employees.FindAsync(request.Id);
+            var emplEntity = await _context.employees.FindAsync(request.Id);
 
             if (emplEntity == null)
                 throw new NotFoundException(nameof(Employies), request.Id);
 
-            _context.Employees.Remove(emplEntity);
+            _context.employees.Remove(emplEntity);
             await _context.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;

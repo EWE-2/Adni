@@ -35,7 +35,7 @@ namespace Adni.Application.Companies.Commands.UpdateCompanyDetails
 
         public async Task<Unit> Handle(UpdateCompanyDetailsCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _context.Companies.FindAsync(request.Id);
+            var entity = await _context.companies.FindAsync(request.Id);
 
             entity.ProspectorId = request.ProspectorId;
             entity.CompanyName = request.CompanyName;

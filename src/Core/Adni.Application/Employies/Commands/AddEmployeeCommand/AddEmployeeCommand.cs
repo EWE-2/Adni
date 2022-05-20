@@ -44,7 +44,7 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
                 IsOnline = false,
             };
 
-            _context.Employees.Add(emplEntity);
+            _context.employees.Add(emplEntity);
             await _context.SaveChangesAsync(cancellationToken);
 
             return emplEntity.EmployeeId;

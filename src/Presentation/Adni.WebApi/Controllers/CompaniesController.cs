@@ -25,7 +25,7 @@ namespace Adni.WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_context.Companies);
+            return Ok(_context.companies);
         }
         [HttpPost]
         public async Task<ActionResult<Guid>> Create(CreateCompanyCommand command)
