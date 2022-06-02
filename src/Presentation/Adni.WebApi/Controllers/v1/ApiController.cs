@@ -2,10 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authorization;
 
-namespace Adni.WebApi.Controllers
+namespace Adni.WebApi.Controllers.v1
 {
-    [Route("api/[controller]")]
+    [Authorize]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class ApiController : ControllerBase
     {

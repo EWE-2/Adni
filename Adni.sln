@@ -43,7 +43,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AdniApp", "src\Presentation
 		VWDPort = "7887"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adni.Shared", "src\Infrastructure\Adni.Shared\Adni.Shared.csproj", "{C972E66C-999F-4101-A88B-4D79CDB77DE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adni.Shared", "src\Infrastructure\Adni.Shared\Adni.Shared.csproj", "{C972E66C-999F-4101-A88B-4D79CDB77DE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adni.Identity", "src\Infrastructure\Adni.Identity\Adni.Identity.csproj", "{EF3856D1-6339-4316-9ABC-E9B5B088AB57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,10 @@ Global
 		{C972E66C-999F-4101-A88B-4D79CDB77DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C972E66C-999F-4101-A88B-4D79CDB77DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C972E66C-999F-4101-A88B-4D79CDB77DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF3856D1-6339-4316-9ABC-E9B5B088AB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF3856D1-6339-4316-9ABC-E9B5B088AB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF3856D1-6339-4316-9ABC-E9B5B088AB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF3856D1-6339-4316-9ABC-E9B5B088AB57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{6A627DDD-CF9E-4525-8A4F-113D929449FF} = {F9D6DA25-3C1B-4D02-BAA4-2FAE6B489BED}
 		{87DF2472-0D46-4CFE-918E-0C9EAC476E47} = {958FDEA4-CC36-4DDD-A24A-117187B49956}
 		{C972E66C-999F-4101-A88B-4D79CDB77DE9} = {E682A7EE-14B3-4AD9-8D82-D0EA2A611EB8}
+		{EF3856D1-6339-4316-9ABC-E9B5B088AB57} = {E682A7EE-14B3-4AD9-8D82-D0EA2A611EB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96423120-5F12-45FE-B6F8-BD799D5885A5}

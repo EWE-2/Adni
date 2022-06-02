@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Adni.Domain.Entities;
 
 namespace Adni.Application.CompanyLists.Commands.DeleteCompanyList
-{
+{/*
     public class DeleteCompanyListCommand :IRequest
     {
         public Guid Id { get; set; }
@@ -39,5 +39,5 @@ namespace Adni.Application.CompanyLists.Commands.DeleteCompanyList
 
             return Unit.Value;
         }
-    }
+    }*/
 }

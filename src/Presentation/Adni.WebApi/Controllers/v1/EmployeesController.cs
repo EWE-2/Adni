@@ -10,10 +10,8 @@ using Adni.Application.Employies.Commands.UpdateEmployeeCommand;
 using Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand;
 using Adni.Application.Employies.Commands.DeleteEmployeeCommand;
 
-namespace Adni.WebApi.Controllers
+namespace Adni.WebApi.Controllers.v1
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class EmployiesController : ApiController
     {
         private readonly ApplicationDbContext _context;

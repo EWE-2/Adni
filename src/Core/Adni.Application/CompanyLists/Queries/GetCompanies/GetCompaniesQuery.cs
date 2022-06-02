@@ -9,7 +9,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace Adni.Application.CompanyLists.GetCompanies
-{
+{/*
     public class GetEmployeesQuery : IRequest<EmployeesVm>
     {
     }
@@ -34,5 +34,5 @@ namespace Adni.Application.CompanyLists.GetCompanies
                     .ToListAsync(cancellationToken)
             };
         }
-    }
+    }*/
 }

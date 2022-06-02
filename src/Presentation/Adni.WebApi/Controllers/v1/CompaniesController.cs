@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Adni.Domain.Entities;
 using Adni.Data.Contexts;
 using System;
 using Adni.Application.Companies.Commands.CreateCompany;
@@ -10,10 +7,8 @@ using Adni.Application.Companies.Commands.UpdateCompany;
 using Adni.Application.Companies.Commands.UpdateCompanyDetails;
 using Adni.Application.Companies.Commands.DeleteCompany;
 
-namespace Adni.WebApi.Controllers
+namespace Adni.WebApi.Controllers.v1
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class CompaniesController : ApiController
     {
         private readonly ApplicationDbContext _context;
@@ -27,7 +22,7 @@ namespace Adni.WebApi.Controllers
         {
             return Ok(_context.companies);
         }
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<ActionResult<Guid>> Create(CreateCompanyCommand command)
         {
             //await _context.Companies.AddAsync(company);
@@ -35,7 +30,7 @@ namespace Adni.WebApi.Controllers
             return await Mediator.Send(command);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
             await Mediator.Send(new DeleteCompanyCommand { Id = id});
@@ -51,7 +46,7 @@ namespace Adni.WebApi.Controllers
             return NoContent();
         }
 
-        [HttpPut("action")]
+        [HttpPut("updatedetails")]
         public async Task<ActionResult> UpdateDetails(Guid id, UpdateCompanyDetailsCommand command)
         {
             if (id != command.Id)

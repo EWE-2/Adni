@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.15">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -21,6 +23,7 @@
     <ProjectReference Include="..\..\Core\Adni.Application\Adni.Application.csproj" />
     <ProjectReference Include="..\..\Core\Adni.Domain\Adni.Domain.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Adni.Data\Adni.Data.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Adni.Identity\Adni.Identity.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Adni.Shared\Adni.Shared.csproj" />
   </ItemGroup>
 

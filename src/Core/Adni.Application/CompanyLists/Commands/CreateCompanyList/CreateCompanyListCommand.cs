@@ -28,7 +28,7 @@ namespace Adni.Application.CompanyLists.Commands.CreateCompanyList
         public async Task<Guid> Handle(CreateCompanyListCommand request, CancellationToken cancellationToken)
         {
             var entity = new CompaniesList { City = request.City} ; //passer par les interfaces pour atteindre CompanyList.City
-            _context.companiesLists.Add(entity);
+            //_context.companiesLists.Add(entity);
             await _context.SaveChangesAsync(cancellationToken);
 
             return entity._companiesListId;
