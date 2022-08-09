@@ -32,8 +32,10 @@ namespace Adni.WebApi.Filter
         {
             Type type = context.Exception.GetType();
             if (_exceptionHandlers.ContainsKey(type))
+            {
                 _exceptionHandlers[type].Invoke(context);
-            return;
+                return;
+            }
 
             HandleUnknownException(context);
         }

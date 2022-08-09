@@ -1,5 +1,7 @@
 ﻿using Adni.Application.Common.Interfaces;
 using Adni.Domain.Entities;
+using Adni.Domain.Enums;
+using Adni.Domain.ValueObjects;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -19,7 +21,7 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
         public string WhatsappNumber { get; set; }
         public DateTime DoB { get; set; }
         public bool IsOnline { get; set; }
-        public string Position { get; private set; }
+        public EmployeeRole Role { get; private set; }
     }
 
     public class AddEmployeeCommandHandler : IRequestHandler<AddEmployeeCommand, Guid>
@@ -40,7 +42,7 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
                 Phonenumber = request.Phonenumber,
                 WhatsappNumber = request.WhatsappNumber,
                 DoB = request.DoB, 
-                Position = request.Position,
+                Role = request.Role,
                 IsOnline = false,
             };
 

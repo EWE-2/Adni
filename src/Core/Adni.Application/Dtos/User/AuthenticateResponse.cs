@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Adni.Domain.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,9 @@ namespace Adni.Application.Dtos.User
         public string Token { get; set; }
 
         
-        public AuthenticateResponse(Adni.Domain.Entities.User user, string token)
+        public AuthenticateResponse(Adni.Domain.Entities.Employee user, string token)
         {
-            Id = user.Id;
+            Id = user.EmployeeId;
             Firstname = user.Firstname;
             Lastname = user.Lastname;
             Username = user.Username;

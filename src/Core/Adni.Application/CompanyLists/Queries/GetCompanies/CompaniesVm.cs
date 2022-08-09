@@ -8,7 +8,7 @@ using Adni.Application.Dtos.Company;
 
 namespace Adni.Application.CompanyLists.GetCompanies
 {
-    public class EmployeesVm
+    public class CompaniesVm
     {
         public IList<CompanyDto> Lists { get; set; }
     }

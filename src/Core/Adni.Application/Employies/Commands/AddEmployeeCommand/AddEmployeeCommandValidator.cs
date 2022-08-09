@@ -19,7 +19,7 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
             _context = context;
             RuleFor(v => v.Firstname).NotEmpty().WithMessage("Le nom est obligatoire");
             RuleFor(v => v.Phonenumber).NotEmpty().WithMessage("Renseignez le numero de telephone");
-            RuleFor(v => v.Position).NotEmpty().WithMessage("Le role est obligatoire");
+            RuleFor(v => v.Role).NotEmpty().WithMessage("Le role est obligatoire");
             RuleFor(v => v.Location).NotEmpty().WithMessage("Le lieu de residence est obligatoire");
         }
 

@@ -7,7 +7,7 @@ using FluentValidation;
 using Adni.Application.Common.Interfaces;
 
 namespace Adni.Application.CompanyLists.Commands.CreateCompanyList
-{/*
+{
     public class CreateCompanyListCommandValidator : AbstractValidator<CreateCompanyListCommand>
     {
         private readonly IApplicationDbContext _context;
@@ -20,5 +20,5 @@ namespace Adni.Application.CompanyLists.Commands.CreateCompanyList
                 .MaximumLength(100).WithMessage("Le nom de la ville ne doit pas depasser 40 caracteres.");
 
         }
-    }*/
+    }
 }

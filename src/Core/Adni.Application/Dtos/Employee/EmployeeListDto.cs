@@ -1,4 +1,5 @@
 ﻿using Adni.Application.Common.Mappings;
+using Adni.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace Adni.Application.Dtos.Employee
     {
         public IList<EmployeeDto> Items { get; set; }
         public Guid Id { get; set; }
-        public string Position { get; set; }
+        public string Location { get; set; }
+        public EmployeeRole EmployeesRole { get; set; }
 
         public EmployeeListDto()
         {

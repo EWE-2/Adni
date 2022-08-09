@@ -11,6 +11,6 @@ namespace Adni.Application.Common.Interfaces
     public interface IUserService
     {
         AuthenticateResponse Authenticate(AuthenticateRequest model);
-        User GetById(Guid id);
+        Employee GetById(Guid id);
     }
 }

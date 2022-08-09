@@ -12,12 +12,12 @@ using System.Threading;
 
 namespace Adni.Application.CompanyLists.Queries.ExportCompanies
 {
-    public class ExportEmployeesQuery: IRequest<ExportEmployeesVm>
+    public class ExportCompaniesQuery: IRequest<ExportCompaniesVm>
     {
         public Guid Id { get; set; }
     }
 
-    public class ExportCompaniesHandler : IRequestHandler<ExportEmployeesQuery, ExportEmployeesVm>
+    public class ExportCompaniesHandler : IRequestHandler<ExportCompaniesQuery, ExportCompaniesVm>
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
@@ -30,9 +30,9 @@ namespace Adni.Application.CompanyLists.Queries.ExportCompanies
             _fileBuilder = fileBuilder;
         }
 
-        public async Task<ExportEmployeesVm> Handle(ExportEmployeesQuery request, CancellationToken cancellationToken)
+        public async Task<ExportCompaniesVm> Handle(ExportCompaniesQuery request, CancellationToken cancellationToken)
         {
-            var vm = new ExportEmployeesVm();
+            var vm = new ExportCompaniesVm();
 
             var records = await _context.companies
                 .Where(t => t.Id == request.Id)

@@ -9,7 +9,7 @@ using System.Threading;
 using Adni.Application.Common.Exceptions;
 
 namespace Adni.Application.CompanyLists.Commands.UpdateCompanyList
-{/*
+{
     public class UpdateCompanyListCommand : IRequest
     {
         public Guid Id { get; set; }
@@ -36,5 +36,5 @@ namespace Adni.Application.CompanyLists.Commands.UpdateCompanyList
 
             return Unit.Value;
         }
-    }*/
+    }
 }

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Adni.Domain.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Adni.Domain.Entities
 {
-    public class User
+    public abstract class User
     {
-        public Guid Id { get; set; }
+        public Guid EmployeeId { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Username { get;set; }

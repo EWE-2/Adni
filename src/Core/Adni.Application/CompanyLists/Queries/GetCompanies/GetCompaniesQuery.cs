@@ -9,12 +9,12 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
 namespace Adni.Application.CompanyLists.GetCompanies
-{/*
-    public class GetEmployeesQuery : IRequest<EmployeesVm>
+{
+    public class GetCompaniesQuery : IRequest<CompaniesVm>
     {
     }
 
-    public class GetCompaniesQueryHandler : IRequestHandler<GetEmployeesQuery, EmployeesVm>
+    public class GetCompaniesQueryHandler : IRequestHandler<GetCompaniesQuery, CompaniesVm>
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
@@ -24,9 +24,9 @@ namespace Adni.Application.CompanyLists.GetCompanies
             _context = context;
             _mapper = mapper;
         }
-        public async Task<EmployeesVm> Handle(GetEmployeesQuery request, CancellationToken cancellationToken)
+        public async Task<CompaniesVm> Handle(GetCompaniesQuery request, CancellationToken cancellationToken)
         {
-            return new EmployeesVm
+            return new CompaniesVm
             {
                 Lists = (System.Collections.Generic.IList<CompanyDto>)await _context.companiesLists
                     .ProjectTo<CompanyListDto>(_mapper.ConfigurationProvider)
@@ -34,5 +34,5 @@ namespace Adni.Application.CompanyLists.GetCompanies
                     .ToListAsync(cancellationToken)
             };
         }
-    }*/
+    }
 }

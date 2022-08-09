@@ -24,7 +24,7 @@ namespace Adni.Domain.Entities
         public Company(Guid id, Guid prospId)
         {
             //Constructor for companies objects
-            //Change Guid to ActorId to 
+            //Change Guid to Guid to 
             if (id == default)
                 throw new ArgumentNullException("Identifiant de l'entreprise incorrect", nameof(id));
             Id = id;

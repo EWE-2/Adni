@@ -9,6 +9,7 @@ using Adni.Application.Employies.Commands.AddEmployeeCommand;
 using Adni.Application.Employies.Commands.UpdateEmployeeCommand;
 using Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand;
 using Adni.Application.Employies.Commands.DeleteEmployeeCommand;
+using Adni.Domain.ValueObjects;
 
 namespace Adni.WebApi.Controllers.v1
 {
@@ -25,7 +26,7 @@ namespace Adni.WebApi.Controllers.v1
         {
             return Ok(_context.employees);
         }
-        [HttpPost]
+        [HttpPost("ajouter")]
         public async Task<ActionResult<Guid>> Create(AddEmployeeCommand command)
         {
             //await _context.Employies.AddAsync(company);
@@ -40,7 +41,7 @@ namespace Adni.WebApi.Controllers.v1
             return NoContent();
         }
         [HttpPut]
-        public async Task<ActionResult> Update(System.Guid id, UpdateEmployeeCommand command)
+        public async Task<ActionResult> Update(Guid id, UpdateEmployeeCommand command)
         {
             if (id != command.EmployeeId)
                 return BadRequest();

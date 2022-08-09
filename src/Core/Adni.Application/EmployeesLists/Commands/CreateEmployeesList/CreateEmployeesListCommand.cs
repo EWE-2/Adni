@@ -8,12 +8,13 @@ using Adni.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using Adni.Domain.Entities;
+using Adni.Domain.Enums;
 
 namespace Adni.Application.EmployeesLists.Commands.CreateEmployeesList
 {
     public partial class CreateEmployeesListCommand : IRequest<Guid>
     {
-        public string EmployeesPosition { get; set; }
+        public string Location { get; set; }
     }
 
     public class CreateEmployeesListCommandHandler : IRequestHandler<CreateEmployeesListCommand, Guid>
@@ -26,7 +27,7 @@ namespace Adni.Application.EmployeesLists.Commands.CreateEmployeesList
         }
         public async Task<Guid> Handle(CreateEmployeesListCommand request, CancellationToken cancellationToken)
         {
-            var entity = new EmployeesList { EmployeesPosition = request.EmployeesPosition} ; //passer par les interfaces pour atteindre EmployeesList.EmployeesPosition
+            var entity = new EmployeesList { Location = request.Location} ; //passer par les interfaces pour atteindre EmployeesList.EmployeesRole
             _context.employeesLists.Add(entity);
             await _context.SaveChangesAsync(cancellationToken);
 

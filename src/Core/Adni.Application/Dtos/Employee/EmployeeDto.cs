@@ -7,6 +7,8 @@ using AutoMapper;
 using Adni.Application.Common.Interfaces;
 using Adni.Domain.Entities;
 using Adni.Application.Common.Mappings;
+using Adni.Domain.ValueObjects;
+using Adni.Domain.Enums;
 
 namespace Adni.Application.Dtos.Employee
 {
@@ -20,12 +22,12 @@ namespace Adni.Application.Dtos.Employee
         public DateTime DoB { get; set; }
         public Guid EmployeeId { get; set; }
         public bool IsOnline { get; set; }
-        public string Position { get; set; }
+        public EmployeeRole Role { get; set; }
 
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Domain.Entities.Employee, EmployeeDto>()
-                .ForMember(d => d.Position, opt => opt.MapFrom(s => (string)s.Position));
+                .ForMember(d => d.Role, opt => opt.MapFrom(s => (string)s.Role));
         }
     }
 }

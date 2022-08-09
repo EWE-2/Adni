@@ -6,9 +6,9 @@ namespace Adni.Domain.ValueObjects
 {
         public abstract class Value<T> where T : IEquatable<T>
         {
-            public string _Value { get; }
+            public Guid _Value { get; }
 
-            public Value(string value) => _Value = value;
+            public Value(Guid value) => _Value = value;
             public bool Equals(Value<T> other)
             {
                 if (ReferenceEquals(null, other)) return false;
