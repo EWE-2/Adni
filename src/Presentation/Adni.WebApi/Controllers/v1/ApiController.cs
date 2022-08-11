@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Adni.WebApi.Controllers.v1
 {
-    [Authorize]
+    //[Authorize]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]

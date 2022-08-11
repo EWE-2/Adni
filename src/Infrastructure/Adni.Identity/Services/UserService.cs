@@ -24,8 +24,14 @@ namespace Adni.Identity.Services
                 Firstname = "EKE EKE",
                 Lastname = "Samule",
                 Username = "DrEKE.CDS",
-                Password = "MachineL!"
-            }
+                Password = "MachineL!",
+                Location = "Mboppi",
+                Phonenumber = "+237670066011",
+                WhatsappNumber = "+237670066011",
+                DoB = DateTime.UtcNow.ToString(),
+                IsOnline = false,
+                Role = "DSE"
+    }
         };
 
         private readonly AuthSettings _authSettings;

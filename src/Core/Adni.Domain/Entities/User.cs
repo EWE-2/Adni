@@ -15,6 +15,6 @@ namespace Adni.Domain.Entities
         public string Location { get; set; }
         public string Phonenumber { get; set; }
         public string WhatsappNumber { get; set; }
-        public DateTime DoB { get; set; }
+        public string DoB { get; set; }
     }
 }

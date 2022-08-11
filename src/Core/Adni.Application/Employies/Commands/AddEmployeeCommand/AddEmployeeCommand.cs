@@ -14,14 +14,16 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
 {
     public class AddEmployeeCommand : IRequest<Guid>
     {
+        public bool IsOnline { get; set; }
+        public string Role { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
         public string Location { get; set; }
         public string Phonenumber { get; set; }
         public string WhatsappNumber { get; set; }
-        public DateTime DoB { get; set; }
-        public bool IsOnline { get; set; }
-        public EmployeeRole Role { get; private set; }
+        public string DoB { get; set; }
     }
 
     public class AddEmployeeCommandHandler : IRequestHandler<AddEmployeeCommand, Guid>
@@ -36,14 +38,16 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
         {
             var emplEntity = new Employee
             {
+                IsOnline = false,
+                Role = request.Role,
                 Firstname = request.Firstname,
                 Lastname = request.Lastname,
+                Username = request.Username,
+                Password = request.Password,
                 Location = request.Location,
                 Phonenumber = request.Phonenumber,
                 WhatsappNumber = request.WhatsappNumber,
                 DoB = request.DoB, 
-                Role = request.Role,
-                IsOnline = false,
             };
 
             _context.employees.Add(emplEntity);

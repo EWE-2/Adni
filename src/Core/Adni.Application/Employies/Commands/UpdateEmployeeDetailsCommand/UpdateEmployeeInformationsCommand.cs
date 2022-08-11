@@ -14,10 +14,12 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
         public string Location { get; set; }
         public string Phonenumber { get; set; }
         public string WhatsappNumber { get; set; }
-        public DateTime DoB { get; set; }
+        public string DoB { get; set; }
         public Guid EmployeeId { get; set; }
 
     }
@@ -37,6 +39,8 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand
 
             emplEntity.Firstname = request.Firstname;
             emplEntity.Lastname = request.Lastname;
+            emplEntity.Username = request.Username;
+            emplEntity.Password = request.Password;
             emplEntity.Location = request.Location;
             emplEntity.Phonenumber = request.Phonenumber;
             emplEntity.WhatsappNumber = request.WhatsappNumber;

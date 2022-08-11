@@ -22,7 +22,7 @@ namespace Adni.Application.Dtos.Employee
         public DateTime DoB { get; set; }
         public Guid EmployeeId { get; set; }
         public bool IsOnline { get; set; }
-        public EmployeeRole Role { get; set; }
+        public string Role { get; set; }
 
         public void Mapping(Profile profile)
         {

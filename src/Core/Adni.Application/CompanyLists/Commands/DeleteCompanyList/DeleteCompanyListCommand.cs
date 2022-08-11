@@ -28,7 +28,7 @@ namespace Adni.Application.CompanyLists.Commands.DeleteCompanyList
         public async Task<Unit> Handle(DeleteCompanyListCommand request, CancellationToken cancellationToken)
         {
             var entity = await _context.companiesLists
-                .Where(l => l._companiesListId == request.Id)
+                .Where(l => l.CompaniesListId == request.Id)
                 .SingleOrDefaultAsync(cancellationToken);
 
             if (entity == null)

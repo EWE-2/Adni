@@ -31,7 +31,7 @@ namespace Adni.Application.CompanyLists.Commands.CreateCompanyList
             _context.companiesLists.Add(entity);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return entity._companiesListId;
+            return entity.CompaniesListId;
         }
 
     }
