@@ -16,11 +16,10 @@ namespace Adni.Domain.Entities
         public string Location { get; set; }
         public string Phonenumber { get; set; }
         public string WhatsappNumber { get; set; }
-        public DateTime DoB { get; set; }
+        public string DoB { get; set; }
         public string Matricule { get; set; }
         public List<int> AcademicYear { get; set; }
         public AcademicLevel AcademicLevel { get; set; }
-        
         public Guid FieldId { get; set; }
     }
 }
