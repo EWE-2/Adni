@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using Adni.Domain.ValueObjects;
-using Adni.Domain.Interfaces;
 
 namespace Adni.Domain.Entities
 {

@@ -8,7 +8,6 @@ using Adni.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using Adni.Domain.Entities;
-using Adni.Domain.Interfaces.CompanyListInterface;
 
 namespace Adni.Application.CompanyLists.Commands.CreateCompanyList
 {

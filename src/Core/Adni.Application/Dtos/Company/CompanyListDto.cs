@@ -8,7 +8,7 @@ using Adni.Application.Common.Mappings;
 
 namespace Adni.Application.Dtos.Company
 {
-    public class CompanyListDto : IMapFrom<Domain.Entities.CompaniesList>
+    public class CompanyListDto : IMapFrom<CompaniesList>
     {
         public CompanyListDto()
         {

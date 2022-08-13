@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using Adni.Domain.Entities;
-using Adni.Domain.Interfaces;
 
 namespace Adni.Application.Companies.Commands.CreateCompany
 {

@@ -12,6 +12,8 @@ namespace Adni.Application.Common.Interfaces
         DbSet<CompaniesList> companiesLists{get;set;}
         DbSet<Employee> employees {get;set;}
         DbSet<EmployeesList> employeesLists{get;set;}
+        DbSet<Prospection> prospections {get;set;}
+        DbSet<ProspectionsList> prospectionsList { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

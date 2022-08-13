@@ -27,6 +27,8 @@ namespace Adni.Data.Contexts
         public DbSet<Employee> employees { get ; set; }
         public DbSet<EmployeesList> employeesLists { get; set; }
         public DbSet<Company> companies { get; set; }
+        public DbSet<Prospection> prospections { get ; set; }
+        public DbSet<ProspectionsList> prospectionsList { get ; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDateTime dateTime): base(options)
         {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Adni.Application.CompanyLists.Queries.ExportCompanies;
 using Adni.Application.EmployeesLists.Queries.ExportEmployees;
+using Adni.Application.ProspectionList.Queries.ExportProspections;
 
 namespace Adni.Application.Common.Interfaces
 {
@@ -12,5 +13,6 @@ namespace Adni.Application.Common.Interfaces
     {
         byte[] BuildCompaniesFile(IEnumerable<CompanyItemRecord> records);
         byte[] BuildEmployeesFile(IEnumerable<EmployeeItemRecord> records);
+        byte[] BuildProspectionsFile(IEnumerable<ProspectionsItemRecord> records);
     }
 }

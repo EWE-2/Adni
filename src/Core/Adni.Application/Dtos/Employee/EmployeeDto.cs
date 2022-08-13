@@ -19,7 +19,7 @@ namespace Adni.Application.Dtos.Employee
         public string Location { get; set; }
         public string Phonenumber { get; set; }
         public string WhatsappNumber { get; set; }
-        public DateTime DoB { get; set; }
+        public string DoB { get; set; }
         public Guid EmployeeId { get; set; }
         public bool IsOnline { get; set; }
         public string Role { get; set; }
