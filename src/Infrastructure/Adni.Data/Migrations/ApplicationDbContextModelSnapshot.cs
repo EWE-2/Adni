@@ -88,7 +88,7 @@ namespace Adni.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Departmentname")
+                    b.Property<string>("DepartmentName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

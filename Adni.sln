@@ -45,8 +45,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adni.Shared", "src\Infrastr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adni.Identity", "src\Infrastructure\Adni.Identity\Adni.Identity.csproj", "{EF3856D1-6339-4316-9ABC-E9B5B088AB57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "..\..\..\Users\Administrateur\source\repos\WebApplication1\WebApplication1.csproj", "{6698614B-2A6F-4A5F-B6D6-8FE073258B99}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,10 +83,6 @@ Global
 		{EF3856D1-6339-4316-9ABC-E9B5B088AB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF3856D1-6339-4316-9ABC-E9B5B088AB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF3856D1-6339-4316-9ABC-E9B5B088AB57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6698614B-2A6F-4A5F-B6D6-8FE073258B99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6698614B-2A6F-4A5F-B6D6-8FE073258B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6698614B-2A6F-4A5F-B6D6-8FE073258B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6698614B-2A6F-4A5F-B6D6-8FE073258B99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,7 +99,6 @@ Global
 		{87DF2472-0D46-4CFE-918E-0C9EAC476E47} = {958FDEA4-CC36-4DDD-A24A-117187B49956}
 		{C972E66C-999F-4101-A88B-4D79CDB77DE9} = {E682A7EE-14B3-4AD9-8D82-D0EA2A611EB8}
 		{EF3856D1-6339-4316-9ABC-E9B5B088AB57} = {E682A7EE-14B3-4AD9-8D82-D0EA2A611EB8}
-		{6698614B-2A6F-4A5F-B6D6-8FE073258B99} = {958FDEA4-CC36-4DDD-A24A-117187B49956}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96423120-5F12-45FE-B6F8-BD799D5885A5}

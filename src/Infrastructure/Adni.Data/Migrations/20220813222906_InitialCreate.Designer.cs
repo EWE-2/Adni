@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Adni.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220813115336_InitialCreate")]
+    [Migration("20220813222906_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,7 +90,7 @@ namespace Adni.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Departmentname")
+                    b.Property<string>("DepartmentName")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

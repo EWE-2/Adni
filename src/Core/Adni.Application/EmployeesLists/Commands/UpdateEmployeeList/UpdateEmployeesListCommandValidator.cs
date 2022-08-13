@@ -18,6 +18,8 @@ namespace Adni.Application.EmployeesLists.Commands.UpdateEmployeeList
 
             RuleFor(v => v.Location)
                 .NotEmpty().WithMessage("La localite doit etre specifie et est obligatoire");
+            RuleFor(v => v.EmployeesRole)
+                .NotEmpty().WithMessage("Le role de cette liste est obligatoire");
         }
     }
 }

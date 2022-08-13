@@ -127,7 +127,7 @@ namespace Adni.Data.Migrations
                 {
                     DepartmentId = table.Column<Guid>(type: "TEXT", nullable: false),
                     HeadDepartmentId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Departmentname = table.Column<string>(type: "TEXT", nullable: false),
+                    DepartmentName = table.Column<string>(type: "TEXT", nullable: false),
                     DepartmentDescription = table.Column<string>(type: "TEXT", nullable: false),
                     ProspectionId = table.Column<Guid>(type: "TEXT", nullable: true)
                 },

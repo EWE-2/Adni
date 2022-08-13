@@ -13,7 +13,7 @@ namespace Adni.Application.EmployeesLists.Queries.ExportEmployees
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public EmployeeRole Role { get; set; }
+        public string Role { get; set; }
         public string Location { get; set; }
         public string Phonenumber { get; set; }
     }

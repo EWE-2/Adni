@@ -18,6 +18,8 @@ namespace Adni.Application.EmployeesLists.Commands.CreateEmployeesList
             RuleFor(v => v.Location)
                 .NotEmpty().WithMessage("Le poste est requis")
                 .MaximumLength(100).WithMessage("Le nom du poste ne doit pas depasser 5 caracteres.");
+            RuleFor(v => v.EmployeesRole)
+                .NotEmpty().WithMessage("Le role de cette liste est obligatoire");
 
         }
     }

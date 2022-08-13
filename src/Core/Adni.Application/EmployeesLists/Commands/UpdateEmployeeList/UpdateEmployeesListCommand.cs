@@ -13,6 +13,7 @@ namespace Adni.Application.EmployeesLists.Commands.UpdateEmployeeList
     public class UpdateEmployeesListCommand : IRequest
     {
         public Guid Id { get; set; }
+        public string EmployeesRole { get; set; }
         public string Location { get; set; }
     }
 
@@ -32,6 +33,7 @@ namespace Adni.Application.EmployeesLists.Commands.UpdateEmployeeList
                 throw new NotFoundException(nameof(EmployeesLists), request.Id);
 
             entity.Location = request.Location;
+            entity.EmployeesRole = request.EmployeesRole;
             await _context.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
