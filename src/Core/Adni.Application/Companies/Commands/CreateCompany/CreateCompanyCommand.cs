@@ -27,7 +27,7 @@ namespace Adni.Application.Companies.Commands.CreateCompany
 
     public class CreateCompanyCommandHandler : IRequestHandler<CreateCompanyCommand, Guid>
     {
-        private IApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
         public CreateCompanyCommandHandler(IApplicationDbContext context)
         {

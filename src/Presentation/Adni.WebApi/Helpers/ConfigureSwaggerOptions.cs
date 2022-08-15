@@ -12,12 +12,12 @@ namespace Adni.WebApi.Helpers
         private readonly IApiVersionDescriptionProvider _provider;
         public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) => _provider = provider;
 
+        /**<summary>
+        * Le comportement <c>Configure</c> ajoute une documentation pour toute version de l'api decouverte
+        * </summary>
+        */
         public void Configure(SwaggerGenOptions options)
         {
-            /**<summary>
-             * Le comportement <c>Configure</c> ajoute une documentation pour toute version de l'api decouverte
-             * </summary>
-             */
             foreach (var description in _provider.ApiVersionDescriptions)
                 options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));
         }
