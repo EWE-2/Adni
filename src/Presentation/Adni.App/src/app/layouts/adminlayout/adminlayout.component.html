@@ -1,0 +1,13 @@
+<div class="flex h-screen bg-slate-200 dark:bg-gray-900">
+  <app-navbar-admin class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"></app-navbar-admin>
+  <div class="flex flex-col flex-1 w-full">
+    <!-- Header and main page of adni will be there-->
+    <app-admin-header class="z-10 h-16 py-2 bg-white shadow-md dark:bg-gray-800"></app-admin-header>
+    <main class="h-full overflow-y-auto mb-6">
+      <router-outlet></router-outlet>
+    </main>
+    <!-- <app-adni-dashboard class="h-full overflow-y-auto"></app-adni-dashboard> -->
+    <!--<app-adni-prospection class="h-full overflow-y-auto mb-6"></app-adni-prospection>-->
+    <!--<app-adni-students class="h-full overflow-y-auto mb-6"></app-adni-students>-->
+  </div>
+</div>
