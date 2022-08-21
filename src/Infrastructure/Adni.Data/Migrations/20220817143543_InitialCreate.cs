@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace Adni.Data.Migrations
 {
     public partial class InitialCreate : Migration
@@ -50,13 +52,13 @@ namespace Adni.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
                     ProspectorId = table.Column<Guid>(type: "TEXT", nullable: false),
-                    CompanyName = table.Column<string>(type: "TEXT", nullable: false),
+                    CompanyName = table.Column<string>(type: "TEXT", nullable: true),
                     CompanyDescription = table.Column<string>(type: "TEXT", nullable: true),
                     CompanyCigle = table.Column<string>(type: "TEXT", nullable: true),
-                    CompanyPhonenumber = table.Column<string>(type: "TEXT", nullable: false),
+                    CompanyPhonenumber = table.Column<string>(type: "TEXT", nullable: true),
                     CompanyEmail = table.Column<string>(type: "TEXT", nullable: true),
-                    CompanyLocation = table.Column<string>(type: "TEXT", nullable: false),
-                    CompanyFocal = table.Column<string>(type: "TEXT", nullable: false),
+                    CompanyLocation = table.Column<string>(type: "TEXT", nullable: true),
+                    CompanyFocal = table.Column<string>(type: "TEXT", nullable: true),
                     IsConfirmed = table.Column<bool>(type: "INTEGER", nullable: false),
                     CompaniesListId = table.Column<Guid>(type: "TEXT", nullable: true)
                 },
@@ -67,8 +69,7 @@ namespace Adni.Data.Migrations
                         name: "FK_companies_companiesLists_CompaniesListId",
                         column: x => x.CompaniesListId,
                         principalTable: "companiesLists",
-                        principalColumn: "CompaniesListId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "CompaniesListId");
                 });
 
             migrationBuilder.CreateTable(
@@ -77,7 +78,7 @@ namespace Adni.Data.Migrations
                 {
                     EmployeeId = table.Column<Guid>(type: "TEXT", nullable: false),
                     IsOnline = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Role = table.Column<string>(type: "TEXT", nullable: true),
+                    Role = table.Column<string>(type: "TEXT", nullable: false),
                     EmployeesListId = table.Column<Guid>(type: "TEXT", nullable: true),
                     Firstname = table.Column<string>(type: "TEXT", nullable: false),
                     Lastname = table.Column<string>(type: "TEXT", nullable: false),
@@ -95,8 +96,7 @@ namespace Adni.Data.Migrations
                         name: "FK_employees_employeesLists_EmployeesListId",
                         column: x => x.EmployeesListId,
                         principalTable: "employeesLists",
-                        principalColumn: "EmployeesListId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "EmployeesListId");
                 });
 
             migrationBuilder.CreateTable(
@@ -117,8 +117,7 @@ namespace Adni.Data.Migrations
                         name: "FK_prospections_prospectionsList_ProspectionsListId",
                         column: x => x.ProspectionsListId,
                         principalTable: "prospectionsList",
-                        principalColumn: "ProspectionsListId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "ProspectionsListId");
                 });
 
             migrationBuilder.CreateTable(
@@ -138,8 +137,7 @@ namespace Adni.Data.Migrations
                         name: "FK_Department_prospections_ProspectionId",
                         column: x => x.ProspectionId,
                         principalTable: "prospections",
-                        principalColumn: "ProspectionId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "ProspectionId");
                 });
 
             migrationBuilder.CreateTable(
@@ -149,7 +147,7 @@ namespace Adni.Data.Migrations
                     FieldId = table.Column<Guid>(type: "TEXT", nullable: false),
                     DepartmentId = table.Column<Guid>(type: "TEXT", nullable: false),
                     FieldName = table.Column<string>(type: "TEXT", nullable: false),
-                    FieldDescription = table.Column<string>(type: "TEXT", nullable: false),
+                    FieldDescription = table.Column<string>(type: "TEXT", nullable: true),
                     FieldCigle = table.Column<string>(type: "TEXT", nullable: false),
                     ProspectionId = table.Column<Guid>(type: "TEXT", nullable: true)
                 },
@@ -166,8 +164,7 @@ namespace Adni.Data.Migrations
                         name: "FK_Field_prospections_ProspectionId",
                         column: x => x.ProspectionId,
                         principalTable: "prospections",
-                        principalColumn: "ProspectionId",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "ProspectionId");
                 });
 
             migrationBuilder.CreateIndex(

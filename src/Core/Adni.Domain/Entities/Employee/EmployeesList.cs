@@ -11,6 +11,7 @@ namespace Adni.Domain.Entities
         public IList<Employee> Employees { get; set; }
         public string EmployeesRole { get; set; }
         public string Location { get; set; }
+
         public EmployeesList()
         {
             Employees = new List<Employee>();

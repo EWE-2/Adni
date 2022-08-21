@@ -6,17 +6,18 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
+#nullable disable
+
 namespace Adni.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220813222906_InitialCreate")]
+    [Migration("20220817143543_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.15");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
 
             modelBuilder.Entity("Adni.Domain.Entities.CompaniesList", b =>
                 {
@@ -52,19 +53,15 @@ namespace Adni.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CompanyFocal")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CompanyLocation")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CompanyName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CompanyPhonenumber")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsConfirmed")
@@ -144,6 +141,7 @@ namespace Adni.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Role")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Username")
@@ -194,7 +192,6 @@ namespace Adni.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FieldDescription")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FieldName")

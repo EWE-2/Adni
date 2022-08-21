@@ -28,7 +28,7 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
 
     public class AddEmployeeCommandHandler : IRequestHandler<AddEmployeeCommand, Guid>
     {
-        private IApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
         public AddEmployeeCommandHandler(IApplicationDbContext context)
         {

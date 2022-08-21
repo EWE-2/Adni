@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Adni.Domain.ValueObjects;
 
-namespace Adni.Domain.Entities
+namespace Adni.Domain.Entities //A REVOIR ENTIEREMENT
 {
+    /**
+     * <summary> Classe <c>Intership</c> est une classe de mise en stage ayant
+     * </summary>
+     */
     public class Intership
     {
-        public Guid InternId { get; set; }
+        public Guid InternshipId { get; set; }
         public Guid StartingGuid { get; set; } //Employee ayant lance la nouvelle session de stage
         public DateTime StartingDate { get; set; }
         public DateTime _endingDate { get; set; }

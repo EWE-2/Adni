@@ -3,13 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using Adni.Application;
 using Adni.Shared;
 using Microsoft.AspNetCore.Mvc;
 using Adni.WebApi.Filter;
-
-
 using Adni.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Adni.Data;
@@ -18,8 +15,6 @@ using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Adni.Identity;
-using System.Collections.Generic;
-using Adni.Identity.Helpers;
 
 namespace Adni.WebApi
 {

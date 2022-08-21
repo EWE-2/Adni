@@ -12,6 +12,7 @@ namespace Adni.WebApi.Controllers.v1
     public class CompaniesController : ApiController
     {
         private readonly ApplicationDbContext _context;
+
         public CompaniesController(ApplicationDbContext context)
         {
             _context = context;

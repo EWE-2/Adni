@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
-using Adni.Application.Common.Interfaces;
-using Adni.Domain.Entities;
 using Adni.Application.Common.Mappings;
-using Adni.Domain.ValueObjects;
-using Adni.Domain.Enums;
 
 namespace Adni.Application.Dtos.Employee
 {
@@ -16,6 +8,8 @@ namespace Adni.Application.Dtos.Employee
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
         public string Location { get; set; }
         public string Phonenumber { get; set; }
         public string WhatsappNumber { get; set; }

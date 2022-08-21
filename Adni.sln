@@ -19,29 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adni.WebApi", "src\Presenta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adni.Application", "src\Core\Adni.Application\Adni.Application.csproj", "{6A627DDD-CF9E-4525-8A4F-113D929449FF}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AdniApp", "src\Presentation\AdniApp\", "{87DF2472-0D46-4CFE-918E-0C9EAC476E47}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_7887"
-		Debug.AspNetCompiler.PhysicalPath = "src\Presentation\AdniApp\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_7887\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_7887"
-		Release.AspNetCompiler.PhysicalPath = "src\Presentation\AdniApp\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_7887\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "7887"
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adni.Shared", "src\Infrastructure\Adni.Shared\Adni.Shared.csproj", "{C972E66C-999F-4101-A88B-4D79CDB77DE9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adni.Identity", "src\Infrastructure\Adni.Identity\Adni.Identity.csproj", "{EF3856D1-6339-4316-9ABC-E9B5B088AB57}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Adni.App", "src\Presentation\Adni.App\Adni.App.esproj", "{5083292A-5CF5-470C-8778-9A5560BDDC08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,10 +47,6 @@ Global
 		{6A627DDD-CF9E-4525-8A4F-113D929449FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A627DDD-CF9E-4525-8A4F-113D929449FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A627DDD-CF9E-4525-8A4F-113D929449FF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87DF2472-0D46-4CFE-918E-0C9EAC476E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87DF2472-0D46-4CFE-918E-0C9EAC476E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87DF2472-0D46-4CFE-918E-0C9EAC476E47}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{87DF2472-0D46-4CFE-918E-0C9EAC476E47}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{C972E66C-999F-4101-A88B-4D79CDB77DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C972E66C-999F-4101-A88B-4D79CDB77DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C972E66C-999F-4101-A88B-4D79CDB77DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,6 +55,12 @@ Global
 		{EF3856D1-6339-4316-9ABC-E9B5B088AB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF3856D1-6339-4316-9ABC-E9B5B088AB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF3856D1-6339-4316-9ABC-E9B5B088AB57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5083292A-5CF5-470C-8778-9A5560BDDC08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5083292A-5CF5-470C-8778-9A5560BDDC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5083292A-5CF5-470C-8778-9A5560BDDC08}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5083292A-5CF5-470C-8778-9A5560BDDC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5083292A-5CF5-470C-8778-9A5560BDDC08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5083292A-5CF5-470C-8778-9A5560BDDC08}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,9 +73,9 @@ Global
 		{CB37FB70-9C6D-4AF6-A2E0-2A91CC12B23D} = {E682A7EE-14B3-4AD9-8D82-D0EA2A611EB8}
 		{C072E0CE-113F-4A02-8D41-28A45EC317D8} = {958FDEA4-CC36-4DDD-A24A-117187B49956}
 		{6A627DDD-CF9E-4525-8A4F-113D929449FF} = {F9D6DA25-3C1B-4D02-BAA4-2FAE6B489BED}
-		{87DF2472-0D46-4CFE-918E-0C9EAC476E47} = {958FDEA4-CC36-4DDD-A24A-117187B49956}
 		{C972E66C-999F-4101-A88B-4D79CDB77DE9} = {E682A7EE-14B3-4AD9-8D82-D0EA2A611EB8}
 		{EF3856D1-6339-4316-9ABC-E9B5B088AB57} = {E682A7EE-14B3-4AD9-8D82-D0EA2A611EB8}
+		{5083292A-5CF5-470C-8778-9A5560BDDC08} = {958FDEA4-CC36-4DDD-A24A-117187B49956}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96423120-5F12-45FE-B6F8-BD799D5885A5}
