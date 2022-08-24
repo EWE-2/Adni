@@ -14,6 +14,7 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }
+        public string Email { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Location { get; set; }
@@ -39,6 +40,7 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand
 
             emplEntity.Firstname = request.Firstname;
             emplEntity.Lastname = request.Lastname;
+            emplEntity.Email = request.Email;
             emplEntity.Username = request.Username;
             emplEntity.Password = request.Password;
             emplEntity.Location = request.Location;

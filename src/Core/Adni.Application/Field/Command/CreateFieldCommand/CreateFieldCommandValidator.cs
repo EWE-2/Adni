@@ -14,7 +14,8 @@ namespace Adni.Application.Field.Command.CreateFieldCommand
         {
             _context = context;
             RuleFor(v => v.FieldName).NotEmpty().WithMessage("Le nom de la filiere est obligatoire");
-            RuleFor(v => v.FieldCigle).NotEmpty().WithMessage("Le cigle est obligatoire");
+            RuleFor(v => v.FieldCigle).NotEmpty().WithMessage("Le cigle est obligatoire")
+                .MustAsync(BeUniqueCigle).WithMessage("Ce cigle est déjà utilisé par une autre filière");
         }
 
         public async Task<bool> BeUniqueCigle(string fieldCigle, CancellationToken cancellationToken)

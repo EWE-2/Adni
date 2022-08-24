@@ -29,9 +29,9 @@ namespace Adni.Data.Contexts
         public DbSet<Company> companies { get; set; }
         public DbSet<Prospection> prospections { get ; set; }
         public DbSet<ProspectionsList> prospectionsList { get ; set; }
-        //public DbSet<Field> fields { get; set; }
-        //public DbSet<Department> departments { get; set; }
-        //public DbSet<Student> students { get; set; }
+        public DbSet<Field> fields { get; set; }
+        public DbSet<Department> departments { get; set; }
+        public DbSet<Student> students { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDateTime dateTime): base(options)
         {

@@ -4,12 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Field\**" />
-    <EmbeddedResource Remove="Field\**" />
-    <None Remove="Field\**" />
-  </ItemGroup>
-
+  
   <ItemGroup>
 	<Folder Include="Common\Exceptions" />
 	<Folder Include="Common\Behaviors" />

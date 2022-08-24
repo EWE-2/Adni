@@ -4,25 +4,25 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Adni.Application.Employies.Commands.AddEmployeeCommand
+namespace Adni.Application.Student.Commands.AddStudentCommand
 {
-    public class AddEmsployeeCommandValidator : AbstractValidator<AddEmployeeCommand>
+    public class AddStudentCommandValidator : AbstractValidator<AddStudentCommand>
     {
         private readonly IApplicationDbContext _context;
 
-        public AddEmsployeeCommandValidator(IApplicationDbContext context)
+        public AddStudentCommandValidator(IApplicationDbContext context)
         {
             _context = context;
             RuleFor(v => v.Firstname).NotEmpty().WithMessage("Le nom est obligatoire");
             RuleFor(v => v.Phonenumber).NotEmpty().WithMessage("Renseignez le numero de telephone");
-            RuleFor(v => v.Role).NotEmpty().WithMessage("Le rôle est obligatoire")
-                .MustAsync(BeUniqueName).WithMessage("Ce rôle a déjà été attribué");
+            RuleFor(v => v.Matricule).NotEmpty().WithMessage("Le matricule est obligatoire")
+                .MustAsync(BeUniqueName).WithMessage("Ce matricule a déjà été attribué");
             RuleFor(v => v.Location).NotEmpty().WithMessage("Le lieu de residence est obligatoire");
         }
 
-        public async Task<bool> BeUniqueName(string name, CancellationToken cancellationToken)
+        public async Task<bool> BeUniqueName(string matricule, CancellationToken cancellationToken)
         {
-            return await _context.employees.AllAsync(l => l.Firstname != name);
+            return await _context.students.AllAsync(l => l.Matricule != matricule);
         }
     }
 }

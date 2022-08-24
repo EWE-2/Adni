@@ -6,16 +6,16 @@ using Adni.Domain.Entities;
 using Adni.Data.Contexts;
 using System;
 using Adni.Application.Employies.Commands.AddEmployeeCommand;
+using Adni.Application.Employies.Commands.DeleteEmployeeCommand;
 using Adni.Application.Employies.Commands.UpdateEmployeeCommand;
 using Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand;
-using Adni.Application.Employies.Commands.DeleteEmployeeCommand;
-using Adni.Domain.ValueObjects;
 
 namespace Adni.WebApi.Controllers.v1
 {
     public class EmployiesController : ApiController
     {
         private readonly ApplicationDbContext _context;
+
         public EmployiesController(ApplicationDbContext context)
         {
             _context = context;
@@ -26,6 +26,13 @@ namespace Adni.WebApi.Controllers.v1
         {
             return Ok(_context.employees);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(Guid id)
+        {
+            return Ok(_context.employees.FindAsync(id));
+        }
+
         [HttpPost("ajouter")]
         public async Task<ActionResult<Guid>> Create(AddEmployeeCommand command)
         {

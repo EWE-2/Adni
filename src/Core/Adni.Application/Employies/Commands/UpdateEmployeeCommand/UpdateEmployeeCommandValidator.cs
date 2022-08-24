@@ -14,7 +14,7 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeCommand
         {
             _context = context;
 
-            RuleFor(v => v.Firstname + v.Lastname)
+            RuleFor(v => v.Username)
                .NotEmpty().WithMessage("Le nom du personnel est obligatoire")
                .MaximumLength(200).WithMessage("Le nom ne doit depasser 200 caracteres.")
                .MustAsync(BeUniqueName).WithMessage("Ce nom existe deja.");
@@ -22,7 +22,7 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeCommand
 
         public async Task<bool> BeUniqueName(string completeName, CancellationToken cancellationToken)
         {
-            return await _context.employees.AllAsync(l => (l.Firstname+l.Lastname) == completeName);
+            return await _context.employees.AllAsync(l => l.Username == completeName);
         }
     }
 }
