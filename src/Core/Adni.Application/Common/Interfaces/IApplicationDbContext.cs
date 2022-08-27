@@ -17,6 +17,7 @@ namespace Adni.Application.Common.Interfaces
         DbSet<Domain.Entities.Field> fields {get;set;}
         DbSet<Domain.Entities.Department> departments { get; set; }
         DbSet<Domain.Entities.Student> students {get;set;}
+        DbSet<Domain.Entities.AlmUser> almUsers {get;set;}
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

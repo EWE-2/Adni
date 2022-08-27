@@ -2,7 +2,7 @@
 using AutoMapper;
 using Adni.Application.Common.Mappings;
 
-namespace Adni.Application.Dtos.Company
+namespace Adni.Application.Dtos
 {
     public class CompanyDto : IMapFrom<Domain.Entities.Company>
     {

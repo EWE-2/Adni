@@ -1,12 +1,7 @@
 ﻿using Adni.Application.Common.Interfaces;
 using Adni.Domain.Entities;
-using Adni.Domain.Enums;
-using Adni.Domain.ValueObjects;
 using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

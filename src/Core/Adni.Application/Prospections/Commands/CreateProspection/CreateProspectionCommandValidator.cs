@@ -19,7 +19,6 @@ namespace Adni.Application.Prospections.Commands.CreateProspection
             _context = context;
             RuleFor(v => v.EmployeeProspectorId).NotEmpty().WithMessage("Le prospecteur doit être défini");
             RuleFor(v => v.CompanyId).NotEmpty().WithMessage("L'entreprise prospectee doit etre connue");
-            RuleFor(v => v.PlacesDisponibles).NotNull().WithMessage("Pour une filiere selectionnee, le nombre de places voulu ne peut etre nulle");
         }
 
         public async Task<bool> BeUniqueProspector(Guid prospectorId, CancellationToken cancellationToken)

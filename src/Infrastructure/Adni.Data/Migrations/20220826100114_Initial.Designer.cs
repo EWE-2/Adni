@@ -5,29 +5,106 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace Adni.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220823143910_SecondMigrate")]
-    partial class SecondMigrate
+    [Migration("20220826100114_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "6.0.8")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("Adni.Domain.Entities.AlmUser", b =>
+                {
+                    b.Property<Guid>("AlmUserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Contrat")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Dob")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("FieldId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Firtname")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<char>("Gender")
+                        .HasColumnType("character(1)");
+
+                    b.Property<string>("GraduateYear")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Lastname")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Localisation")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("NormalizedEmail")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ProStatus")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("AlmUserId");
+
+                    b.ToTable("almUsers");
+                });
 
             modelBuilder.Entity("Adni.Domain.Entities.CompaniesList", b =>
                 {
                     b.Property<Guid>("CompaniesListId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("CompaniesListId");
 
@@ -38,37 +115,37 @@ namespace Adni.Data.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid?>("CompaniesListId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("CompanyCigle")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("CompanyDescription")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("CompanyEmail")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("CompanyFocal")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("CompanyLocation")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("CompanyName")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("CompanyPhonenumber")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsConfirmed")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<Guid>("ProspectorId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -81,25 +158,21 @@ namespace Adni.Data.Migrations
                 {
                     b.Property<Guid>("DepartmentId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("DepartmentDescription")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("DepartmentName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
-                    b.Property<Guid>("HeadDepartmentId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<Guid?>("ProspectionId")
-                        .HasColumnType("TEXT");
+                    b.Property<string>("HeadDepartmentName")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("DepartmentId");
-
-                    b.HasIndex("ProspectionId");
 
                     b.ToTable("departments");
                 });
@@ -108,53 +181,53 @@ namespace Adni.Data.Migrations
                 {
                     b.Property<Guid>("EmployeeId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("DoB")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("EmployeesListId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Firstname")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<bool>("IsOnline")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Lastname")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Phonenumber")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Role")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("WhatsappNumber")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("EmployeeId");
 
@@ -167,15 +240,15 @@ namespace Adni.Data.Migrations
                 {
                     b.Property<Guid>("EmployeesListId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("EmployeesRole")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("EmployeesListId");
 
@@ -186,24 +259,24 @@ namespace Adni.Data.Migrations
                 {
                     b.Property<Guid>("FieldId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("DepartmentId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("FieldCigle")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("FieldDescription")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("FieldName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<Guid?>("ProspectionId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.HasKey("FieldId");
 
@@ -214,26 +287,42 @@ namespace Adni.Data.Migrations
                     b.ToTable("fields");
                 });
 
+            modelBuilder.Entity("Adni.Domain.Entities.PlacesDisponibles", b =>
+                {
+                    b.Property<Guid>("PlacesDisponiblesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("NbrPlace")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("ProspectionId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("PlacesDisponiblesId");
+
+                    b.HasIndex("ProspectionId");
+
+                    b.ToTable("PlacesDisponibles");
+                });
+
             modelBuilder.Entity("Adni.Domain.Entities.Prospection", b =>
                 {
                     b.Property<Guid>("ProspectionId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("CompanyId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("EmployeeProspectorId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("PlacesDisponibles")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid?>("ProspectionsListId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("SessionId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.HasKey("ProspectionId");
 
@@ -246,10 +335,10 @@ namespace Adni.Data.Migrations
                 {
                     b.Property<Guid>("ProspectionsListId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Observation")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("ProspectionsListId");
 
@@ -260,41 +349,41 @@ namespace Adni.Data.Migrations
                 {
                     b.Property<Guid>("StudentId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<int>("AcademicLevel")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("integer");
 
                     b.Property<string>("AcademicYear")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("DoB")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Email")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<Guid>("FieldId")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Firstname")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Lastname")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Location")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Matricule")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("Phonenumber")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.Property<string>("WhatsappNumber")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("text");
 
                     b.HasKey("StudentId");
 
@@ -308,13 +397,6 @@ namespace Adni.Data.Migrations
                         .HasForeignKey("CompaniesListId");
                 });
 
-            modelBuilder.Entity("Adni.Domain.Entities.Department", b =>
-                {
-                    b.HasOne("Adni.Domain.Entities.Prospection", null)
-                        .WithMany("DesiredDepartmentsList")
-                        .HasForeignKey("ProspectionId");
-                });
-
             modelBuilder.Entity("Adni.Domain.Entities.Employee", b =>
                 {
                     b.HasOne("Adni.Domain.Entities.EmployeesList", null)
@@ -324,7 +406,7 @@ namespace Adni.Data.Migrations
 
             modelBuilder.Entity("Adni.Domain.Entities.Field", b =>
                 {
-                    b.HasOne("Adni.Domain.Entities.Department", null)
+                    b.HasOne("Adni.Domain.Entities.Department", "Department")
                         .WithMany("Fields")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -333,6 +415,19 @@ namespace Adni.Data.Migrations
                     b.HasOne("Adni.Domain.Entities.Prospection", null)
                         .WithMany("DesiredFields")
                         .HasForeignKey("ProspectionId");
+
+                    b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("Adni.Domain.Entities.PlacesDisponibles", b =>
+                {
+                    b.HasOne("Adni.Domain.Entities.Prospection", "Prospection")
+                        .WithMany("PlacesDisponibles")
+                        .HasForeignKey("ProspectionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Prospection");
                 });
 
             modelBuilder.Entity("Adni.Domain.Entities.Prospection", b =>
@@ -359,9 +454,9 @@ namespace Adni.Data.Migrations
 
             modelBuilder.Entity("Adni.Domain.Entities.Prospection", b =>
                 {
-                    b.Navigation("DesiredDepartmentsList");
-
                     b.Navigation("DesiredFields");
+
+                    b.Navigation("PlacesDisponibles");
                 });
 
             modelBuilder.Entity("Adni.Domain.Entities.ProspectionsList", b =>

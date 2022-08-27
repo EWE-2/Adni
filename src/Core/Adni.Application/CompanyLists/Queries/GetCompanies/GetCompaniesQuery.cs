@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Adni.Application.Common.Interfaces;
-using Adni.Application.Dtos.Company;
+using Adni.Application.Dtos;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using System.Linq;

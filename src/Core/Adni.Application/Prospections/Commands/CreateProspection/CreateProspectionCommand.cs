@@ -16,9 +16,9 @@ namespace Adni.Application.Prospections.Commands.CreateProspection
         public Guid SessionId { get; set; } //Id de la session de stage
         public Guid EmployeeProspectorId { get; set; }
         public Guid CompanyId { get; set; }
-        public IList<Domain.Entities.Department> DesiredDepartmentsList { get; set; }
+        // public IList<Domain.Entities.Department> DesiredDepartmentsList { get; set; }
         public IList<Domain.Entities.Field> DesiredFields { get; set; }
-        public int PlacesDisponibles { get; set; }
+        public IList<PlacesDisponibles> PlacesDisponibles { get; set; }
     }
 
     public class CreateProspectionCommandHandler : IRequestHandler<CreateProspectionCommand, Guid>
@@ -38,7 +38,7 @@ namespace Adni.Application.Prospections.Commands.CreateProspection
                 SessionId = request.SessionId,
                 EmployeeProspectorId = request.EmployeeProspectorId,
                 CompanyId = request.CompanyId,
-                DesiredDepartmentsList = request.DesiredDepartmentsList,
+                // DesiredDepartmentsList = request.DesiredDepartmentsList,
                 DesiredFields = request.DesiredFields,
                 PlacesDisponibles = request.PlacesDisponibles,
             };

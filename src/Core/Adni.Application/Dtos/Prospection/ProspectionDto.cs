@@ -15,14 +15,14 @@ namespace Adni.Application.Dtos.Prospection
         public Guid SessionId { get; set; } //Id de la session de stage
         public Guid EmployeeProspectorId { get; set; }
         public Guid CompanyId { get; set; }
-        public IList<DepartmentDto> DesiredDepartmentsList { get; set; }
+        // public IList<DepartmentDto> DesiredDepartmentsList { get; set; }
         public IList<FieldDto> DesiredFields { get; set; }
-        public int PlacesDisponibles { get; set; }
+        public IList<PlacesDisponibles> PlacesDisponibles { get; set; }
 
         public void Mapping(Profile profile)
         {
             profile.CreateMap<Domain.Entities.Prospection, ProspectionDto>()
-                .ForMember(d => d.CompanyId, opt => opt.MapFrom(s => (Guid)s.CompanyId));
+                .ForMember(d => d.EmployeeProspectorId, opt => opt.MapFrom(s => (Guid)s.EmployeeProspectorId));
         }
     }
 }

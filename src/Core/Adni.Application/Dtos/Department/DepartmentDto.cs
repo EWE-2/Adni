@@ -7,7 +7,7 @@ namespace Adni.Application.Dtos
     public class DepartmentDto : IMapFrom<Domain.Entities.Department>
     {
         public Guid DepartmentId { get; set; }
-        public Guid HeadDepartmentId { get; set; }
+        public string HeadDepartmentName { get; set; }
         public string DepartmentName { get; set; }
         public string DepartmentDescription { get; set; }
         public IList<FieldDto> Fields { get; set; }
@@ -16,5 +16,7 @@ namespace Adni.Application.Dtos
         {
             Fields = new List<FieldDto>();
         }
+
+        public void Mapping(MappingProfile profile) => profile.CreateMap<Domain.Entities.Department, DepartmentDto>();
     }
 }

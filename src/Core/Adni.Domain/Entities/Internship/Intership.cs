@@ -14,7 +14,7 @@ namespace Adni.Domain.Entities //A REVOIR ENTIEREMENT
         public DateTime StartingDate { get; set; }
         public DateTime _endingDate { get; set; }
         public Guid CompanyId { get; set; }
-        public IList<Department> DesiredDepartmentsList { get; set; }
+        // public IList<Department> DesiredDepartmentsList { get; set; }
         public IList<Field> DesiredFields { get; set; }
         public IList<int> PlacesDisponibles { get; set; }
         public IList<Student> SelectedStudentsList { get; set; }
@@ -23,7 +23,7 @@ namespace Adni.Domain.Entities //A REVOIR ENTIEREMENT
         public Intership()
         {
             SelectedStudentsList = new List<Student>();
-            DesiredDepartmentsList = new List<Department>();
+            // DesiredDepartmentsList = new List<Department>();
             DesiredFields = new List<Field>();
             PlacesDisponibles = new List<int>();
         }

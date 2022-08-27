@@ -12,7 +12,7 @@ namespace Adni.WebApi.Controllers.v1
     [ApiController]
     public class ApiController : ControllerBase
     {
-        private IMediator _mediator;
-        protected IMediator Mediator => _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
+        private ISender _sender;
+        protected ISender Mediator => _sender ??= HttpContext.RequestServices.GetService<ISender>();
     }
 }

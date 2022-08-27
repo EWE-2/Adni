@@ -8,7 +8,7 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeCommand
 {
     public class UpdateEmployeeCommandValidator : AbstractValidator<UpdateEmployeeCommand>
     {
-        private IApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
         public UpdateEmployeeCommandValidator(IApplicationDbContext context)
         {

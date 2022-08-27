@@ -16,9 +16,9 @@ namespace Adni.Application.Prospections.Commands.UpdateProspectionDetails
         public Guid SessionId { get; set; } //Id de la session de stage
         public Guid EmployeeProspectorId { get; set; }
         public Guid CompanyId { get; set; }
-        public IList<Domain.Entities.Department> DesiredDepartmentsList { get; set; }
+        // public IList<Domain.Entities.Department> DesiredDepartmentsList { get; set; }
         public IList<Domain.Entities.Field> DesiredFields { get; set; }
-        public int PlacesDisponibles { get; set; }
+        public IList<PlacesDisponibles> PlacesDisponibles { get; set; }
     }
 
     public class UpdateProspectionCommandDetailsHandler : IRequestHandler<UpdateProspectionCommandDetails>
@@ -34,7 +34,7 @@ namespace Adni.Application.Prospections.Commands.UpdateProspectionDetails
             var entity = await _context.prospections.FindAsync(request.ProspectionId);
 
             entity.CompanyId = request.CompanyId;
-            entity.DesiredDepartmentsList = request.DesiredDepartmentsList;
+            // entity.DesiredDepartmentsList = request.DesiredDepartmentsList;
             entity.DesiredFields = request.DesiredFields;
             entity.PlacesDisponibles = request.PlacesDisponibles;
 

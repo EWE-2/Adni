@@ -8,7 +8,6 @@ namespace Adni.Application.Field.Command.CreateFieldCommand
 {
     public class CreateFieldCommand : IRequest<Guid>
     {
-        public Guid FieldId { get; set; }
         public Guid DepartmentId { get; set; }
         public string FieldName { get; set; }
         public string FieldDescription { get; set; }
@@ -28,7 +27,7 @@ namespace Adni.Application.Field.Command.CreateFieldCommand
         {
             var entity = new Domain.Entities.Field
             {
-                DepartmentId = new Guid(),
+                DepartmentId = request.DepartmentId,
                 FieldName = request.FieldName,
                 FieldDescription = request.FieldDescription,
                 FieldCigle = request.FieldCigle.ToUpper()

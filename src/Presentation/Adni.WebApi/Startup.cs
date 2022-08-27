@@ -81,7 +81,8 @@ namespace Adni.WebApi
                 options.GroupNameFormat = "'v'VVV";
             });
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=AdniDatabse.sqlite3"));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(@"host=localhost:5432;database=adniDB;user id=adniSYS;password=00000; "));
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=AdniDatabse.sqlite3"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -17,9 +17,8 @@ namespace Adni.Application.Prospections.Commands.UpdateProspectionDetails
         {
             _context = context;
 
-            RuleFor(v => v.DesiredDepartmentsList).NotEmpty().WithMessage("Selectionner les departemenent/domaines souhaites est obligatoire");
+            // RuleFor(v => v.DesiredDepartmentsList).NotEmpty().WithMessage("Selectionner les departemenent/domaines souhaites est obligatoire");
             RuleFor(v => v.DesiredFields).NotEmpty().WithMessage("Selectionner les filieres souhaitees");
-            RuleFor(v => v.PlacesDisponibles).NotEmpty().WithMessage("Les places disponibles de doivent pas etre nulles");
             RuleFor(v => v.CompanyId).NotEmpty().WithMessage("Selectionnez une entreprise");
         }
 

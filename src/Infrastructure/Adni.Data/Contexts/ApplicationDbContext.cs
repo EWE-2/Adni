@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Adni.Domain.Entities;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Adni.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -32,6 +28,7 @@ namespace Adni.Data.Contexts
         public DbSet<Field> fields { get; set; }
         public DbSet<Department> departments { get; set; }
         public DbSet<Student> students { get; set; }
+        public DbSet<AlmUser> almUsers { get ; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDateTime dateTime): base(options)
         {
@@ -91,6 +88,15 @@ namespace Adni.Data.Contexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            //configuration de la relation Prospection et Field sans cle etrangere chez Field
+            //et une navigation simple sur Prospection
+            builder.Entity<Prospection>()
+                .HasMany(b => b.DesiredFields)
+                .WithOne();
+            builder.Entity<Prospection>()
+                .Navigation(b => b.DesiredFields)
+                .UsePropertyAccessMode(PropertyAccessMode.Property);
+
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             base.OnModelCreating(builder);
