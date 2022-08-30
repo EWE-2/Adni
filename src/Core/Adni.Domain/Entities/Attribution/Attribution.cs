@@ -8,7 +8,7 @@ namespace Adni.Domain.Entities.Attribution
     public class Attribution
     {
         public Guid AttributionId {get;set;}
-        public Guid SessionId { get; set; }
+        public string AcademicYear { get; set; }
         public InternType InternType { get; set; }
         public Guid CompanyId { get; set; }
         public IList<Guid> StudentsListId { get; set; }

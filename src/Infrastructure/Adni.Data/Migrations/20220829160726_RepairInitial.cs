@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Adni.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class RepairInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

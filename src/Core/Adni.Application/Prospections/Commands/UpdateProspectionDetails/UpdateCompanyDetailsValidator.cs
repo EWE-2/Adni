@@ -1,24 +1,20 @@
 ﻿using Adni.Application.Common.Interfaces;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace Adni.Application.Prospections.Commands.UpdateProspectionDetails
+namespace Adni.Application.Prospections.Commands
 {
-    public class UpdateCompanyDetailsValidator : AbstractValidator<UpdateProspectionCommandDetails>
+    public class UpdateProspectionDetailsValidator : AbstractValidator<UpdateProspectionCommandDetails>
     {
         private readonly IApplicationDbContext _context;
 
-        public UpdateCompanyDetailsValidator(IApplicationDbContext context)
+        public UpdateProspectionDetailsValidator(IApplicationDbContext context)
         {
             _context = context;
 
             // RuleFor(v => v.DesiredDepartmentsList).NotEmpty().WithMessage("Selectionner les departemenent/domaines souhaites est obligatoire");
-            RuleFor(v => v.DesiredFields).NotEmpty().WithMessage("Selectionner les filieres souhaitees");
+            //RuleFor(v => v.DesiredFields).NotEmpty().WithMessage("Selectionner les filieres souhaitees");
             RuleFor(v => v.CompanyId).NotEmpty().WithMessage("Selectionnez une entreprise");
         }
 

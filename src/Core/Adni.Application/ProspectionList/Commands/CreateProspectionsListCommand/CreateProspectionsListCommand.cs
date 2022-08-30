@@ -30,7 +30,7 @@ namespace Adni.Application.ProspectionList.Commands.CreateProspectionsListComman
             _context.prospectionsList.Add(entity);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return entity.ProspectionsListId; 
+            return (Guid)entity.ProspectionsListId; 
         }
     }
 }

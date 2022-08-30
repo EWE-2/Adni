@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Adni.Application.Student.Commands.AddStudentCommand
+namespace Adni.Application.Student.Commands
 {
     public class AddStudentCommandValidator : AbstractValidator<AddStudentCommand>
     {

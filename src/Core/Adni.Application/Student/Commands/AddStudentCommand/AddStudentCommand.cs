@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Adni.Application.Student.Commands.AddStudentCommand
+namespace Adni.Application.Student.Commands
 {
     public class AddStudentCommand : IRequest<Guid>
     {
@@ -42,6 +42,7 @@ namespace Adni.Application.Student.Commands.AddStudentCommand
                 WhatsappNumber = request.WhatsappNumber,
                 DoB = request.DoB, 
                 Matricule = request.Matricule,
+                AcademicYear = request.AcademicYear,
                 AcademicLevel = request.AcademicLevel,
                 FieldId = request.FieldId
             };

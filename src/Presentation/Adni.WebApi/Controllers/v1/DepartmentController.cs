@@ -1,4 +1,4 @@
-﻿using Adni.Application.Department.Command.CreateDepartmentCommand;
+﻿using Adni.Application.Department.Command;
 using Adni.Data.Contexts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,7 @@ namespace Adni.WebApi.Controllers.v1
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_context.fields);
+            return Ok(_context.departments);
         }
 
         //[HttpPost("Ajouter")]

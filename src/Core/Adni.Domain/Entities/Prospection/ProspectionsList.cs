@@ -10,8 +10,8 @@ namespace Adni.Domain.Entities
         {
             ProspectionRecap = new List<Prospection>();
         }
-        public Guid ProspectionsListId { get; set; }
-        public IList<Prospection> ProspectionRecap { get; set; }
+        public Guid? ProspectionsListId { get; set; }
+        public IList<Prospection>? ProspectionRecap { get; set; }
         public string? Observation { get; set; }
     }
 }

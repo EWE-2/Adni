@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Adni.Application.Student.Commands.UpdateStudentDetailsCommand
+namespace Adni.Application.Student.Commands
 {
     public class UpdateStudentInformationsCommand : IRequest
     {

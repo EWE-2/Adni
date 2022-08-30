@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgChartsModule } from 'ng2-charts';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { LayoutsModule } from './layouts/layouts.module';
@@ -18,6 +19,8 @@ import { DashboardFeatureComponent } from './features/admin/dashboard-feature/da
 import { EmployeesListComponent } from './features/admin/Employee/employees-list/employees-list.component';
 import { AddEmployeeComponent } from './features/admin/Employee/add-employee/add-employee.component';
 import { DoughnutComponent } from './components/admin/chart/doughnut/doughnut.component';
+import { AlmniSignUpComponent } from './features/auth/almni-sign-up/almni-sign-up.component';
+import { AlumniLogInComponent } from './features/auth/alumni-log-in/alumni-log-in.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +35,12 @@ import { DoughnutComponent } from './components/admin/chart/doughnut/doughnut.co
     DashboardFeatureComponent,
     EmployeesListComponent,
     AddEmployeeComponent,
-    DoughnutComponent
+    DoughnutComponent,
+    AlmniSignUpComponent,
+    AlumniLogInComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, AppRoutingModule, NgChartsModule
+    BrowserModule, HttpClientModule, AppRoutingModule, NgChartsModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

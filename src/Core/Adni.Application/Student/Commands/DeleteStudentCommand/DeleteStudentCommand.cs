@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Adni.Application.Student.Commands.DeleteStudentCommand
+namespace Adni.Application.Student.Commands
 {
     public class DeleteStudentCommand : IRequest
     {

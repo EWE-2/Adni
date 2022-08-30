@@ -8,17 +8,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using Adni.Domain.Entities;
 
-namespace Adni.Application.Prospections.Commands.UpdateProspectionDetails
+namespace Adni.Application.Prospections.Commands
 {
     public class UpdateProspectionCommandDetails : IRequest
     {
         public Guid ProspectionId { get; set; }
-        public Guid SessionId { get; set; } //Id de la session de stage
+        public string AcademicYear { get; set; } //Id de la session de stage
         public Guid EmployeeProspectorId { get; set; }
         public Guid CompanyId { get; set; }
         // public IList<Domain.Entities.Department> DesiredDepartmentsList { get; set; }
-        public IList<Domain.Entities.Field> DesiredFields { get; set; }
-        public IList<PlacesDisponibles> PlacesDisponibles { get; set; }
+        //public IList<Domain.Entities.Field> DesiredFields { get; set; }
+        //public IList<PlacesDisponibles> PlacesDisponibles { get; set; }
     }
 
     public class UpdateProspectionCommandDetailsHandler : IRequestHandler<UpdateProspectionCommandDetails>
@@ -35,8 +35,8 @@ namespace Adni.Application.Prospections.Commands.UpdateProspectionDetails
 
             entity.CompanyId = request.CompanyId;
             // entity.DesiredDepartmentsList = request.DesiredDepartmentsList;
-            entity.DesiredFields = request.DesiredFields;
-            entity.PlacesDisponibles = request.PlacesDisponibles;
+            //entity.DesiredFields = request.DesiredFields;
+            //entity.PlacesDisponibles = request.PlacesDisponibles;
 
             await _context.SaveChangesAsync(cancellationToken);
 

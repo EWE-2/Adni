@@ -1,7 +1,5 @@
 ﻿using Adni.Application.Common.Interfaces;
-using Adni.Application.Prospections.Commands.CreateProspection;
-using Adni.Application.Prospections.Commands.DeleteProspection;
-using Adni.Application.Prospections.Commands.UpdateProspectionDetails;
+using Adni.Application.Prospections.Commands;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;

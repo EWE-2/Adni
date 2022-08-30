@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Adni.Application.Prospections.Commands.DeleteProspection
+namespace Adni.Application.Prospections.Commands
 {
     public class DeleteProspectionCommand : IRequest
     {

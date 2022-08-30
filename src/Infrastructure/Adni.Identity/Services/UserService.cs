@@ -31,7 +31,7 @@ namespace Adni.Identity.Services
                 DoB = DateTime.UtcNow.ToString(),
                 IsOnline = false,
                 Role = "DSE"
-    }
+            }
         };
 
         private readonly AuthSettings _authSettings;

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Adni.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220826100114_Initial")]
-    partial class Initial
+    [Migration("20220829160726_RepairInitial")]
+    partial class RepairInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
