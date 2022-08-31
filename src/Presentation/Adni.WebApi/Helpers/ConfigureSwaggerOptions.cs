@@ -28,10 +28,10 @@ namespace Adni.WebApi.Helpers
             {
                 Title = "Adni",
                 Version = description.ApiVersion.ToString(),
-                Description = "Service web de l'application de gestion des stage",
+                Description = "Service web de l'application de gestion des stage et suivi de l'insertion professionnelle",
                 Contact = new OpenApiContact
                 {
-                    Name = "LegendsGroup",
+                    Name = "LightDigit",
                     Email = "EWANE.EWANE@hotmail.com",
                     Url = new Uri("https://adniapp.cm/support")
                 },
