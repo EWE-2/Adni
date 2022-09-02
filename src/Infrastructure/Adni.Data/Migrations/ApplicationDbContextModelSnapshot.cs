@@ -94,6 +94,33 @@ namespace Adni.Data.Migrations
                     b.ToTable("almUsers");
                 });
 
+            modelBuilder.Entity("Adni.Domain.Entities.Attribution", b =>
+                {
+                    b.Property<Guid>("AttributionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AcademicYear")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("InternType")
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("Student")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("AttributionId");
+
+                    b.ToTable("attributions");
+                });
+
             modelBuilder.Entity("Adni.Domain.Entities.CompaniesList", b =>
                 {
                     b.Property<Guid>("CompaniesListId")
@@ -273,22 +300,91 @@ namespace Adni.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("ProspectionId")
-                        .HasColumnType("uuid");
-
                     b.HasKey("FieldId");
 
                     b.HasIndex("DepartmentId");
 
-                    b.HasIndex("ProspectionId");
-
                     b.ToTable("fields");
+                });
+
+            modelBuilder.Entity("Adni.Domain.Entities.Internship", b =>
+                {
+                    b.Property<Guid>("InternshipId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("InternshipPlacementId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("IntershipType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("InternshipId");
+
+                    b.ToTable("internships");
+                });
+
+            modelBuilder.Entity("Adni.Domain.Entities.InternshipPlacement", b =>
+                {
+                    b.Property<Guid>("InternshipPlacementId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("InternType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("IntershipDcm")
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("IsCompleted")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsSend")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("InternshipPlacementId");
+
+                    b.ToTable("internshipPlacements");
+                });
+
+            modelBuilder.Entity("Adni.Domain.Entities.InternshipReport", b =>
+                {
+                    b.Property<Guid>("InternshipReportId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("InternshipId")
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("IsDeposed")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("Note")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("Student")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("InternshipReportId");
+
+                    b.ToTable("internshipReports");
                 });
 
             modelBuilder.Entity("Adni.Domain.Entities.PlacesDisponibles", b =>
                 {
                     b.Property<Guid>("PlacesDisponiblesId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("FieldId")
                         .HasColumnType("uuid");
 
                     b.Property<int>("NbrPlace")
@@ -310,6 +406,10 @@ namespace Adni.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("AcademicYear")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uuid");
 
@@ -317,9 +417,6 @@ namespace Adni.Data.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid?>("ProspectionsListId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("SessionId")
                         .HasColumnType("uuid");
 
                     b.HasKey("ProspectionId");
@@ -331,7 +428,7 @@ namespace Adni.Data.Migrations
 
             modelBuilder.Entity("Adni.Domain.Entities.ProspectionsList", b =>
                 {
-                    b.Property<Guid>("ProspectionsListId")
+                    b.Property<Guid?>("ProspectionsListId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
@@ -368,6 +465,9 @@ namespace Adni.Data.Migrations
                     b.Property<string>("Firstname")
                         .HasColumnType("text");
 
+                    b.Property<Guid?>("InternshipPlacementId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Lastname")
                         .HasColumnType("text");
 
@@ -384,6 +484,8 @@ namespace Adni.Data.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("StudentId");
+
+                    b.HasIndex("InternshipPlacementId");
 
                     b.ToTable("students");
                 });
@@ -410,10 +512,6 @@ namespace Adni.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Adni.Domain.Entities.Prospection", null)
-                        .WithMany("DesiredFields")
-                        .HasForeignKey("ProspectionId");
-
                     b.Navigation("Department");
                 });
 
@@ -435,6 +533,13 @@ namespace Adni.Data.Migrations
                         .HasForeignKey("ProspectionsListId");
                 });
 
+            modelBuilder.Entity("Adni.Domain.Entities.Student", b =>
+                {
+                    b.HasOne("Adni.Domain.Entities.InternshipPlacement", null)
+                        .WithMany("Students")
+                        .HasForeignKey("InternshipPlacementId");
+                });
+
             modelBuilder.Entity("Adni.Domain.Entities.CompaniesList", b =>
                 {
                     b.Navigation("Companies");
@@ -450,10 +555,13 @@ namespace Adni.Data.Migrations
                     b.Navigation("Employees");
                 });
 
+            modelBuilder.Entity("Adni.Domain.Entities.InternshipPlacement", b =>
+                {
+                    b.Navigation("Students");
+                });
+
             modelBuilder.Entity("Adni.Domain.Entities.Prospection", b =>
                 {
-                    b.Navigation("DesiredFields");
-
                     b.Navigation("PlacesDisponibles");
                 });
 

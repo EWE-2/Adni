@@ -12,7 +12,8 @@ export interface AlmUser {
   dob: string;
   proStatus: string;
   companyId: string;
-  position: string
+  position: string;
+  location: string;
 }
 
 enum ProStatus{

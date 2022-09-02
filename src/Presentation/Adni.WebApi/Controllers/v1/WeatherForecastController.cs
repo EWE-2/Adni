@@ -10,7 +10,7 @@ namespace Adni.WebApi.Controllers.v2
     [ApiVersion("2.0")]
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : ApiControllerv2
     {
         private static readonly string[] Summaries = new[]
         {

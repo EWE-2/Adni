@@ -29,6 +29,11 @@ namespace Adni.Data.Contexts
         public DbSet<Department> departments { get; set; }
         public DbSet<Student> students { get; set; }
         public DbSet<AlmUser> almUsers { get ; set; }
+        public DbSet<Attribution> attributions { get; set; }
+        public DbSet<InternshipPlacement> internshipPlacements { get; set; }
+        public DbSet<Internship> internships { get; set; }
+        public DbSet<InternshipReport> internshipReports { get; set; }
+        public DbSet<PlacesDisponibles> placesDisponibles { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDateTime dateTime): base(options)
         {
@@ -90,13 +95,7 @@ namespace Adni.Data.Contexts
         {
             //configuration de la relation Prospection et Field sans cle etrangere chez Field
             //et une navigation simple sur Prospection
-            builder.Entity<Prospection>()
-                .HasMany(b => b.DesiredFields)
-                .WithOne();
-            builder.Entity<Prospection>()
-                .Navigation(b => b.DesiredFields)
-                .UsePropertyAccessMode(PropertyAccessMode.Property);
-
+            
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             base.OnModelCreating(builder);

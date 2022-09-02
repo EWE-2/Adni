@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 import { HttpClient } from '@angular/common/http';
 import { createPopper } from '@popperjs/core';
 import { environment } from 'src/environments/environment';
+import { Employee } from 'src/app/models/employee';
 
 @Component({
   selector: 'app-employees-list',
@@ -47,20 +48,6 @@ export class EmployeesListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-}
-
-interface Employee {
-  doB: string;
-  employeeId: string;
-  firstname: string;
-  isOnline: boolean;
-  lastname: string;
-  location: string;
-  password: string;
-  phonenumber: string;
-  role: string;
-  username: string;
-  whatsappNumber: string;
 }
 
 interface Status {

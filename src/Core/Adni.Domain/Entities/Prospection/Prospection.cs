@@ -20,11 +20,6 @@ namespace Adni.Domain.Entities
         /// </summary>
         public Guid CompanyId { get; set; }
         // public IList<Department> DesiredDepartmentsList { get; set; }
-
-        /// <summary>
-        /// propriete de navigation sur les filieres. <c>Fields</c> est la liste des filieres desirees
-        /// </summary>
-        public IList<Field>? DesiredFields { get; set; }
         /// <summary>
         /// <c>PlacesDisponibles</c> est la liste des places disponible pour chaque filiere de la liste/collection
         /// <c>DesiredFields</c>.

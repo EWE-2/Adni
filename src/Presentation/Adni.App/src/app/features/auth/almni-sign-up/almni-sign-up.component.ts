@@ -50,7 +50,8 @@ export class AlmniSignUpComponent implements OnInit {
       dob: this.form.controls['dob'].value,
       proStatus: this.form.controls['prostatus'].value,
       companyId: this.form.controls['company'].value,
-      position: this.form.controls['position'].value
+      position: this.form.controls['position'].value,
+      location: this.form.controls['position'].value
     };
     var url = environment.baseUrl + 'api/auth/alumni/inscription';
 

@@ -13,6 +13,10 @@ namespace Adni.Domain.Entities
         /// Identifiant de la prospection parent
         /// </summary>
         public Guid ProspectionId { get; set; }
+        /// <summary>
+        /// Filiere ayant ce nombre de places.
+        /// </summary>
+        public Guid FieldId { get; set; }
 
         public Prospection? Prospection { get; set; }
     }
