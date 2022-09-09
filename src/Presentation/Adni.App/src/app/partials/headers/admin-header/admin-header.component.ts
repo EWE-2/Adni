@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { createPopper } from '@popperjs/core';
 
 
 @Component({
@@ -26,14 +27,17 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class AdminHeaderComponent implements OnInit {
   isOpen : boolean = false;
+  dropdownPopoverShow = false;
+  @ViewChild("btnDropdownRef", { static: false}) btnDropdownRef!: ElementRef;
+  @ViewChild("popoverDropdownRef", { static: false }) popoverDropdownRef!: ElementRef;
 
   constructor() { }
 
-  toggleProfileMenu(){
-    this.isOpen = !this.isOpen;
-  }
 
   ngOnInit(): void {
+
   }
+
+
 
 }

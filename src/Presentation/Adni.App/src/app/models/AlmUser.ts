@@ -13,7 +13,8 @@ export interface AlmUser {
   proStatus: string;
   companyId: string;
   position: string;
-  location: string;
+  contrat: string;
+  localisation: string;
 }
 
 enum ProStatus{

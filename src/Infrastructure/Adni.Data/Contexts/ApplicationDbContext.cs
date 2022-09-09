@@ -30,7 +30,7 @@ namespace Adni.Data.Contexts
         public DbSet<Student> students { get; set; }
         public DbSet<AlmUser> almUsers { get ; set; }
         public DbSet<Attribution> attributions { get; set; }
-        public DbSet<InternshipPlacement> internshipPlacements { get; set; }
+        //public DbSet<InternshipPlacement> internshipPlacements { get; set; }
         public DbSet<Internship> internships { get; set; }
         public DbSet<InternshipReport> internshipReports { get; set; }
         public DbSet<PlacesDisponibles> placesDisponibles { get; set; }
