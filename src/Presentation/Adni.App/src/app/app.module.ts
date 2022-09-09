@@ -46,6 +46,8 @@ import { EnterpriseDetailsComponent } from './features/admin/entreprise/enterpri
 import { StageComponent } from './features/admin/stage/stage.component';
 import { RapportStageComponent } from './features/admin/rapport-stage/rapport-stage.component';
 import { ImportAlmuserComponent } from './features/admin/insertion-pro/import-almuser/import-almuser.component';
+import { ProfileMenuDropdownComponent } from './components/admin/dropdown/profile-menu-dropdown/profile-menu-dropdown.component';
+import { NotificationsDropdownComponent } from './components/admin/dropdown/notifications-dropdown/notifications-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +89,9 @@ import { ImportAlmuserComponent } from './features/admin/insertion-pro/import-al
     EnterpriseDetailsComponent,
     StageComponent,
     RapportStageComponent,
-    ImportAlmuserComponent
+    ImportAlmuserComponent,
+    ProfileMenuDropdownComponent,
+    NotificationsDropdownComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, NgChartsModule, ReactiveFormsModule
