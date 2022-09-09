@@ -18,42 +18,42 @@ export class AlmniSignUpComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      userName: new FormControl(''),
       email: new FormControl(''),
-      normalizedEmail: new FormControl(''),
-      passwordHash: new FormControl(''),
       firtname: new FormControl(''),
       lastname: new FormControl(''),
       gender: new FormControl(''),
       fieldId: new FormControl(''),
-      graduateYear: new FormControl(''),
+      graduateYears: new FormControl(''),
       phoneNumber: new FormControl(''),
       dob: new FormControl(''),
       proStatus: new FormControl(''),
-      companyId: new FormControl(''),
-      position:new FormControl('')
+      company: new FormControl(''),
+      position:new FormControl(''),
+      localisation: new FormControl(''),
+      contrat: new FormControl(''),
     });
   }
 
   onSubmit(){
     var user: AlmUser = {
-      userName: this.form.controls['firstname'].value,
+      userName: this.form.controls['firtname'].value,
       email: this.form.controls['email'].value,
       normalizedEmail: this.form.controls['email'].value,
       passwordHash: this.form.controls['email'].value + this.form.controls['gender'].value,
-      firtname: this.form.controls['firstname'].value,
+      firtname: this.form.controls['firtname'].value,
       lastname: this.form.controls['lastname'].value,
       gender: this.form.controls['gender'].value,
-      fieldId: this.form.controls['field'].value,
-      graduateYear: this.form.controls['gradyear'].value,
+      fieldId: this.form.controls['fieldId'].value,
+      graduateYear: this.form.controls['graduateYears'].value,
       phoneNumber: this.form.controls['phoneNumber'].value,
       dob: this.form.controls['dob'].value,
-      proStatus: this.form.controls['prostatus'].value,
+      proStatus: this.form.controls['proStatus'].value,
       companyId: this.form.controls['company'].value,
       position: this.form.controls['position'].value,
-      location: this.form.controls['position'].value
+      contrat: this.form.controls['contrat'].value,
+      localisation: this.form.controls['localisation'].value
     };
-    var url = environment.baseUrl + 'api/auth/alumni/inscription';
+    var url = environment.baseUrl + 'api/v1.0/AlmUser/ajouter';
 
     this.http
       .post<AlmUser>(url, user)
