@@ -13,7 +13,7 @@ namespace Adni.Application.AlmUser.Command
         public CreateAlmUserCommandValidator(IApplicationDbContext context)
         {
             _context = context;
-            RuleFor(v => v.Firtname).NotEmpty().WithMessage("Nom obligatore");
+            RuleFor(v => v.Firstname).NotEmpty().WithMessage("Nom obligatore");
             RuleFor(v => v.PhoneNumber).NotEmpty().WithMessage("Renseignez le numero de telephone");
             RuleFor(v => v.Lastname).NotEmpty().WithMessage("Le le prenom est obligatoire");
             RuleFor(v => v.Gender).NotEmpty().WithMessage("Sexe requis");

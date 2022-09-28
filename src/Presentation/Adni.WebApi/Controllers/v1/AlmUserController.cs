@@ -1,18 +1,24 @@
 ﻿using Adni.Application.AlmUser.Command;
 using Adni.Application.Common.Interfaces;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using System;
+using System.IO;
+using System.Security;
 using System.Threading.Tasks;
 
 namespace Adni.WebApi.Controllers.v1
 {
     public class AlmUserController : ApiController
     {
+        private readonly IWebHostEnvironment _env;
         private IApplicationDbContext _context;
 
-        public AlmUserController(IApplicationDbContext context)
+        public AlmUserController(IApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         [HttpGet]
@@ -60,6 +66,24 @@ namespace Adni.WebApi.Controllers.v1
             await Mediator.Send(command);
 
             return NoContent();
+        }
+
+        [HttpPost("import")]
+        public async Task<ActionResult> Import(ImportAlmUserCommand command)
+        {
+            var path = Path.Combine(
+                _env.ContentRootPath, "Imports\\sip.xlsx");
+
+            if (!_env.IsDevelopment())
+                throw new SecurityException("Operation non admise");
+            command.Path = path;
+
+            var result = await Mediator.Send(command);
+
+            return new JsonResult(new
+            {
+                alumniNbr = result
+            }); ;
         }
     }
 }

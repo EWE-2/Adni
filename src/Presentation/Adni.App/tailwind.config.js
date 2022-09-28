@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         'sans': ["Segoe UI Symbol", ...defaultTheme.fontFamily.sans]
       },
+      boxShadow: {
+        '2lg': '0 0 -4px 0 #111827',
+      }
     },
   },
   plugins: [

@@ -8,6 +8,13 @@ import { ChartConfiguration, ChartType, ChartData, ChartEvent } from 'chart.js';
 })
 export class DashboardFeatureComponent implements OnInit {
   title = 'tableau de bord';
+  options? = {
+    layers: [
+      tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
+    ],
+    zoom: 5,
+    center: latLng(46.879966, -121.726909)
+  };
 
   constructor() { }
 

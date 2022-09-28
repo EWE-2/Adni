@@ -15,7 +15,7 @@ namespace Adni.Application.AlmUser.Command
         public string PasswordHash { get; set; }
 
         //User self information
-        public string Firtname { get; set; }
+        public string Firstname { get; set; }
         public string Lastname { get; set; }
         public char Gender { get; set; }
         public Guid FieldId { get; set; }
@@ -50,7 +50,7 @@ namespace Adni.Application.AlmUser.Command
                 PasswordHash = request.PasswordHash,
 
                 //User self information
-                Firtname = request.Firtname,
+                Firtname = request.Firstname,
                 Lastname = request.Lastname,
                 Gender = request.Gender,
                 FieldId = request.FieldId,
