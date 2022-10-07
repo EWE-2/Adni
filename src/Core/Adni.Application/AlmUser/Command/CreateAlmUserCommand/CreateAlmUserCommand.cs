@@ -1,5 +1,4 @@
 using Adni.Application.Common.Interfaces;
-using Adni.Application.Dtos;
 using MediatR;
 using System;
 using System.Threading;
@@ -50,7 +49,7 @@ namespace Adni.Application.AlmUser.Command
                 PasswordHash = request.PasswordHash,
 
                 //User self information
-                Firtname = request.Firstname,
+                Firstname = request.Firstname,
                 Lastname = request.Lastname,
                 Gender = request.Gender,
                 FieldId = request.FieldId,
@@ -63,12 +62,12 @@ namespace Adni.Application.AlmUser.Command
                 CompanyId = request.CompanyId,
                 Position = request.Position,
                 Contrat = request.Contrat,
-                Localisation = request.Localisation
+                UserLocation = request.Localisation
             };
             await _context.almUsers.AddAsync(user);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return user.AlmUserId;
+            return user.UserId;
 
         }
     }

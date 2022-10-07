@@ -2,27 +2,34 @@
 using AutoMapper;
 using Adni.Application.Common.Mappings;
 
-namespace Adni.Application.Dtos.Employee
-{
-    public class EmployeeDto : IMapFrom<Domain.Entities.Employee>
-    {
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string Email { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Location { get; set; }
-        public string Phonenumber { get; set; }
-        public string WhatsappNumber { get; set; }
-        public string DoB { get; set; }
-        public Guid EmployeeId { get; set; }
-        public bool IsOnline { get; set; }
-        public string Role { get; set; }
+namespace Adni.Application.Dtos.Employee;
 
-        public void Mapping(Profile profile)
-        {
-            profile.CreateMap<Domain.Entities.Employee, EmployeeDto>()
-                .ForMember(d => d.Role, opt => opt.MapFrom(s => (string)s.Role));
-        }
+public record EmployeeDto : IMapFrom<Domain.Entities.Employee>
+{
+    //Identity user informations
+    public Guid UserId { get; set; }
+    public string? UserName { get; set; }
+    public string Email { get; set; }
+    public string NormalizedEmail { get; set; }
+    public string PasswordHash { get; set; }
+
+    //User self information
+    public string Firstname { get; set; }
+    public string? Lastname { get; set; }
+    public char Gender { get; set; }
+    public string? PhoneNumber { get; set; }
+    public string? WhatsappNumber { get; set; }
+    public string? Dob { get; set; }
+    public string? UserLocation { get; set; }
+
+    public string? ImageDirectory { get; set; }
+
+    public bool IsOnline { get; set; }
+    public string Role { get; set; }
+
+    public void Mapping(Profile profile)
+    {
+        profile.CreateMap<Domain.Entities.Employee, EmployeeDto>()
+            .ForMember(d => d.Role, opt => opt.MapFrom(s => (string)s.Role));
     }
 }

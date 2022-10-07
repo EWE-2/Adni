@@ -10,7 +10,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Adni.Identity.Services
 {
@@ -20,15 +19,15 @@ namespace Adni.Identity.Services
         {
             new Employee
             {
-                EmployeeId = Guid.Parse("5D8E0BDA-6011-4F3F-83E3-350D2CF7D11E"),
-                Firstname = "EKE EKE",
+                UserId = Guid.Parse("5D8E0BDA-6011-4F3F-83E3-350D2CF7D11E"),
+                Firtname = "EKE EKE",
                 Lastname = "Samule",
-                Username = "DrEKE.CDS",
-                Password = "MachineL!",
-                Location = "Mboppi",
-                Phonenumber = "+237670066011",
+                UserName = "DrEKE.CDS",
+                PasswordHash = "MachineL!",
+                UserLocation = "Mboppi",
+                PhoneNumber = "+237670066011",
                 WhatsappNumber = "+237670066011",
-                DoB = DateTime.UtcNow.ToString(),
+                Dob = DateTime.UtcNow.ToString(),
                 IsOnline = false,
                 Role = "DSE"
             }
@@ -39,7 +38,7 @@ namespace Adni.Identity.Services
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
-            var user = _users.SingleOrDefault(u => u.Username == model.UserName && u.Password == model.Password);
+            var user = _users.SingleOrDefault(u => u.UserName == model.UserName && u.PasswordHash == model.Password);
 
             if (user == null)
                 return null;
@@ -51,14 +50,14 @@ namespace Adni.Identity.Services
         }
 
 
-        public Employee GetById(Guid id) => _users.FirstOrDefault(u => u.EmployeeId == id);
+        public Employee GetById(Guid id) => _users.FirstOrDefault(u => u.UserId == id);
 
         private string GenerateJwtToken(Employee user)
         {
             byte[] key = Encoding.ASCII.GetBytes(_authSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", user.EmployeeId.ToString()) }),
+                Subject = new ClaimsIdentity(new[] { new Claim("identifiant", user.UserId.ToString()) }),
                 Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

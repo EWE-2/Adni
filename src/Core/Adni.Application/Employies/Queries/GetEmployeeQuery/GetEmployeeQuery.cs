@@ -10,16 +10,26 @@ namespace Adni.Application.Employies.Queries.GetEmployee
 {
     public class GetEmployeeQuery : IRequest<Employee>
     {
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
+        //Identity user informations
+        public Guid UserId { get; set; }
+        public string? UserName { get; set; }
         public string Email { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Location { get; set; }
-        public string Phonenumber { get; set; }
-        public string WhatsappNumber { get; set; }
-        public string DoB { get; set; }
-        public Guid EmployeeId { get; set; }
+        public string NormalizedEmail { get; set; }
+        public string PasswordHash { get; set; }
+
+        //User self information
+        public string Firstname { get; set; }
+        public string? Lastname { get; set; }
+        public char Gender { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? WhatsappNumber { get; set; }
+        public string? Dob { get; set; }
+        public string? UserLocation { get; set; }
+
+        public string? ImageDirectory { get; set; }
+
+        public bool IsOnline { get; set; }
+        public string Role { get; set; }
     }
 
     public class GetEmployeeQueryHandler : IRequestHandler<GetEmployeeQuery, Employee>
@@ -33,7 +43,7 @@ namespace Adni.Application.Employies.Queries.GetEmployee
     
         public async Task<Employee> Handle(GetEmployeeQuery request, CancellationToken cancellationToken)
         {
-            var employee = await _context.employees.FindAsync(request.EmployeeId);
+            var employee = await _context.employees.FindAsync(request.UserId);
 
             return employee;
         }

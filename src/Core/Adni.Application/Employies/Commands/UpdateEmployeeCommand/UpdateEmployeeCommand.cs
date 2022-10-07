@@ -13,7 +13,7 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeCommand
 {
     public partial class UpdateEmployeeCommand : IRequest
     {
-        public Guid EmployeeId { get; set; }
+        public Guid UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
     }
@@ -29,16 +29,16 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeCommand
         
         public async Task<Unit> Handle(UpdateEmployeeCommand request, CancellationToken cancellationToken)
         {
-            var employies = await _context.employees.FindAsync(request.EmployeeId);
+            var employies = await _context.employees.FindAsync(request.UserId);
 
             if (employies == null)
-                throw new NotFoundException(nameof(Employies), request.EmployeeId);
+                throw new NotFoundException(nameof(Employies), request.UserId);
 
-            employies.Username = request.Username;
+            employies.UserName = request.Username;
             if (request.Password == null)
-                employies.Password = employies.Password;
+                employies.PasswordHash = employies.PasswordHash;
             else
-                employies.Username = request.Password;
+                employies.UserName = request.Password;
 
             await _context.SaveChangesAsync(cancellationToken);
 

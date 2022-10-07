@@ -8,13 +8,20 @@ namespace Adni.Application.Student.Commands
 {
     public class AddStudentCommand : IRequest<Guid>
     {
-        public string? Firstname { get; set; }
-        public string? Lastname { get; set; }
-        public string? Email { get; set; }
-        public string? Location { get; set; }
-        public string? Phonenumber { get; set; }
-        public string? WhatsappNumber { get; set; }
-        public string? DoB { get; set; }
+        //Identity user informations
+        public Guid UserId { get; set; }
+
+        //User self information
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+        public char Gender { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string UserLocation { get; set; }
+        public string Dob { get; set; }
+
+        public string? ImageDirectory { get; set; }
+
         public string? Matricule { get; set; }
         public string AcademicYear { get; set; }
         public int AcademicLevel { get; set; }
@@ -37,11 +44,12 @@ namespace Adni.Application.Student.Commands
                 Firstname = request.Firstname,
                 Lastname = request.Lastname,
                 Email = request.Email,
-                Location = request.Location,
-                Phonenumber = request.Phonenumber,
-                WhatsappNumber = request.WhatsappNumber,
-                DoB = request.DoB, 
+                UserLocation = request.UserLocation,
+                PhoneNumber = request.PhoneNumber,
+                Dob = request.Dob,
+                Gender = request.Gender,
                 Matricule = request.Matricule,
+                ImageDirectory = request.ImageDirectory,
                 AcademicYear = request.AcademicYear,
                 AcademicLevel = request.AcademicLevel,
                 FieldId = request.FieldId
@@ -50,7 +58,7 @@ namespace Adni.Application.Student.Commands
             _context.students.Add(entity);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return entity.StudentId;
+            return entity.UserId;
         }
     }
 }
