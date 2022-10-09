@@ -36,7 +36,7 @@ namespace Adni.Application.EmployeesLists.Queries.ExportEmployees
             var vm = new ExportEmployeesVm();
 
             var records = await _context.employees
-                .Where(t => t.UserId == request.Id)
+                .Where(t => t.EmployeeId == request.Id)
                 .ProjectTo<EmployeeItemRecord>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken); 
 

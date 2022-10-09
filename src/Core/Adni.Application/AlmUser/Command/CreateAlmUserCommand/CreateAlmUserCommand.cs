@@ -67,7 +67,7 @@ namespace Adni.Application.AlmUser.Command
             await _context.almUsers.AddAsync(user);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return user.UserId;
+            return user.AlmUserId;
 
         }
     }

@@ -7,6 +7,7 @@ namespace Adni.Domain.Entities
     public class AlmUser : User
     {
         //Academic Informations
+        public Guid AlmUserId { get; set; }
         public Guid FieldId { get; set; }
         public string? GraduateYear { get; set; }
 

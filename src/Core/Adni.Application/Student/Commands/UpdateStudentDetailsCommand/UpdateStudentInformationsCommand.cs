@@ -16,7 +16,7 @@ namespace Adni.Application.Student.Commands
     public class UpdateStudentInformationsCommand : IRequest
     {
         //Identity user informations
-        public Guid UserId { get; set; }
+        public Guid StudentId { get; set; }
 
         //User self information
         public string Firstname { get; set; }
@@ -47,7 +47,7 @@ namespace Adni.Application.Student.Commands
 
         public async Task<Unit> Handle(UpdateStudentInformationsCommand request, CancellationToken cancellationToken)
         {
-            var std = await _context.students.FindAsync(request.UserId);
+            var std = await _context.students.FindAsync(request.StudentId);
 
             std.Firstname = (request.Firstname != null) ? request.Firstname : std.Firstname;
             std.Lastname = (request.Lastname != null) ? request.Lastname : std.Lastname;

@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adni.Api", "src\Presentation\Adni.Api\Adni.Api.csproj", "{A98A75A9-6567-4DA1-952C-ED9691281A9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{5083292A-5CF5-470C-8778-9A5560BDDC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5083292A-5CF5-470C-8778-9A5560BDDC08}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5083292A-5CF5-470C-8778-9A5560BDDC08}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A98A75A9-6567-4DA1-952C-ED9691281A9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A98A75A9-6567-4DA1-952C-ED9691281A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A98A75A9-6567-4DA1-952C-ED9691281A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A98A75A9-6567-4DA1-952C-ED9691281A9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{C972E66C-999F-4101-A88B-4D79CDB77DE9} = {E682A7EE-14B3-4AD9-8D82-D0EA2A611EB8}
 		{EF3856D1-6339-4316-9ABC-E9B5B088AB57} = {E682A7EE-14B3-4AD9-8D82-D0EA2A611EB8}
 		{5083292A-5CF5-470C-8778-9A5560BDDC08} = {958FDEA4-CC36-4DDD-A24A-117187B49956}
+		{A98A75A9-6567-4DA1-952C-ED9691281A9D} = {958FDEA4-CC36-4DDD-A24A-117187B49956}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96423120-5F12-45FE-B6F8-BD799D5885A5}

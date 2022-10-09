@@ -7,7 +7,7 @@ namespace Adni.Application.Dtos;
 public record AlmUserDto : IMapFrom<Domain.Entities.AlmUser>
 {
     //Identity user informations
-    public Guid UserId { get; set; }
+    public Guid AlmUserId { get; set; }
     public string UserName { get; set; }
     public string Email { get; set; }
     public string NormalizedEmail { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Adni.Domain.Enums;
 
 namespace Adni.Domain.Entities
@@ -7,7 +8,7 @@ namespace Adni.Domain.Entities
     public class Student
     {
         //Identity user informations
-        public Guid UserId { get; set; }
+        public Guid StudentId { get; set; }
 
         //User self information
         public string Firstname { get; set; }

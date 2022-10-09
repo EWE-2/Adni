@@ -7,7 +7,7 @@ namespace Adni.Application.Dtos.Student;
 public class StudentDto : IMapFrom<Domain.Entities.Student>
 {
     //Identity user informations
-    public Guid UserId { get; set; }
+    public Guid StudentId { get; set; }
 
     //User self information
     public string Firstname { get; set; }

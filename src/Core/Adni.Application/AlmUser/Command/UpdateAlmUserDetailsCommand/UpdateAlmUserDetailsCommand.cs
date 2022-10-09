@@ -8,7 +8,7 @@ namespace Adni.Application.AlmUser.Command
 {
     public class UpdateAlmUserDetailsCommand : IRequest
     {
-        public Guid UserId { get; set; }
+        public Guid AlmUserId { get; set; }
         public string UserName { get; set; }
 
         //User self information
@@ -39,7 +39,7 @@ namespace Adni.Application.AlmUser.Command
 
         public async Task<Unit> Handle(UpdateAlmUserDetailsCommand request, CancellationToken cancellationToken)
         {
-            var user = await _context.almUsers.FindAsync(request.UserId);
+            var user = await _context.almUsers.FindAsync(request.AlmUserId);
 
             user.PhoneNumber = request.PhoneNumber;
             user.Firstname = request.Firstname;

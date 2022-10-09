@@ -11,7 +11,7 @@ namespace Adni.Application.Employies.Queries.GetEmployee
     public class GetEmployeeQuery : IRequest<Employee>
     {
         //Identity user informations
-        public Guid UserId { get; set; }
+        public Guid EmployeeId { get; set; }
         public string? UserName { get; set; }
         public string Email { get; set; }
         public string NormalizedEmail { get; set; }
@@ -43,7 +43,7 @@ namespace Adni.Application.Employies.Queries.GetEmployee
     
         public async Task<Employee> Handle(GetEmployeeQuery request, CancellationToken cancellationToken)
         {
-            var employee = await _context.employees.FindAsync(request.UserId);
+            var employee = await _context.employees.FindAsync(request.EmployeeId);
 
             return employee;
         }

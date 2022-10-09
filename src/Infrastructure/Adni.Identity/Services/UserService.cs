@@ -19,14 +19,14 @@ namespace Adni.Identity.Services
         {
             new Employee
             {
-                UserId = Guid.Parse("5D8E0BDA-6011-4F3F-83E3-350D2CF7D11E"),
-                Firtname = "EKE EKE",
-                Lastname = "Samule",
-                UserName = "DrEKE.CDS",
+                EmployeeId = Guid.Parse("5D8E0BDA-6011-4F3F-83E3-350D2CF7D11E"),
+                Firstname = "EKE EKE",
+                Lastname = "Samuel",
+                UserName = "DSE.EKE.S",
                 PasswordHash = "MachineL!",
-                UserLocation = "Mboppi",
-                PhoneNumber = "+237670066011",
-                WhatsappNumber = "+237670066011",
+                UserLocation = "Bnamoussadi",
+                PhoneNumber = "+237671382020",
+                WhatsappNumber = "+237693952569",
                 Dob = DateTime.UtcNow.ToString(),
                 IsOnline = false,
                 Role = "DSE"
@@ -50,14 +50,14 @@ namespace Adni.Identity.Services
         }
 
 
-        public Employee GetById(Guid id) => _users.FirstOrDefault(u => u.UserId == id);
+        public Employee GetById(Guid id) => _users.FirstOrDefault(u => u.EmployeeId == id);
 
         private string GenerateJwtToken(Employee user)
         {
             byte[] key = Encoding.ASCII.GetBytes(_authSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] { new Claim("identifiant", user.UserId.ToString()) }),
+                Subject = new ClaimsIdentity(new[] { new Claim("identifiant", user.EmployeeId.ToString()) }),
                 Expires = DateTime.UtcNow.AddDays(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

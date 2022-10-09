@@ -36,7 +36,7 @@ public class AuthenticateResponse
     
     public AuthenticateResponse(Adni.Domain.Entities.Employee user, string token)
     {
-        Id = user.UserId;
+        Id = user.EmployeeId;
         Firstname = user.Firstname;
         Lastname = user.Lastname;
         Username = user.UserName;

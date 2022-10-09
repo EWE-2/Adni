@@ -9,7 +9,7 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand;
 public class UpdateEmployeeInformationsCommand : IRequest
 {
     //Identity user informations
-    public Guid UserId { get; set; }
+    public Guid EmployeeId { get; set; }
     public string? UserName { get; set; }
     public string Email { get; set; }
     public string NormalizedEmail { get; set; }
@@ -42,13 +42,13 @@ public class UpdateEmployeeInformationsCommandHandler : IRequestHandler<UpdateEm
 
     public async Task<Unit> Handle(UpdateEmployeeInformationsCommand request, CancellationToken cancellationToken)
     {
-        var emplEntity = await _context.employees.FindAsync(request.UserId);
+        var emplEntity = await _context.employees.FindAsync(request.EmployeeId);
 
         emplEntity.UserName = request.UserName;
         emplEntity.Email = request.Email;
         emplEntity.NormalizedEmail = request.NormalizedEmail;
         emplEntity.PasswordHash = request.PasswordHash;
-        //User se = request.UserId;
+        //User se = request.EmployeeId;
         emplEntity.Firstname = request.Firstname;
         emplEntity.Lastname = request.Lastname;
         emplEntity.Gender = request.Gender;

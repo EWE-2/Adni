@@ -10,7 +10,7 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
     public class AddEmployeeCommand : IRequest<Guid>
     {
         //Identity user informations
-        public Guid UserId { get; set; }
+        public Guid EmployeeId { get; set; }
         public string? UserName { get; set; }
         public string Email { get; set; }
         public string NormalizedEmail { get; set; }
@@ -43,13 +43,13 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
         {
             var emplEntity = new Employee
             {
-                UserId = request.UserId,
+                EmployeeId = request.EmployeeId,
                 UserName = request.UserName,
                 Email = request.Email,
                 NormalizedEmail = request.NormalizedEmail,
                 PasswordHash = request.PasswordHash,
 
-                //User se = request.UserId,
+                //User se = request.EmployeeId,
                 Firstname = request.Firstname,
                 Lastname = request.Lastname,
                 Gender = request.Gender,
@@ -68,7 +68,7 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
             _context.employees.Add(emplEntity);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return emplEntity.UserId;
+            return emplEntity.EmployeeId;
         }
     }
 }
