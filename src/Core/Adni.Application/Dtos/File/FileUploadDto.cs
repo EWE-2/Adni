@@ -1,5 +1,5 @@
-﻿using Adni.Application.Common.Interfaces;
-using Adni.Domain.Enums;
+﻿using Adni.Domain.Enums;
+using Microsoft.AspNetCore.Http;
 
 namespace Adni.Application.Dtos.File
 {
@@ -8,4 +8,5 @@ namespace Adni.Application.Dtos.File
         public IFormFile FileDetails { get; set; }
         public FileType FileType { get; set; }
     }
+
 }

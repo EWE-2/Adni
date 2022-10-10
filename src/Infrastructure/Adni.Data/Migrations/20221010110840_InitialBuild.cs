@@ -47,8 +47,8 @@ namespace Adni.Data.Migrations
                     EmployeeId = table.Column<Guid>(type: "uuid", nullable: false),
                     AcademicYear = table.Column<string>(type: "text", nullable: false),
                     InternType = table.Column<string>(type: "text", nullable: true),
-                    CompanyId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Student = table.Column<Guid>(type: "uuid", nullable: false)
+                    Student = table.Column<Guid>(type: "uuid", nullable: false),
+                    ProspectionId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,6 +95,20 @@ namespace Adni.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "fileDetails",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    FileName = table.Column<string>(type: "text", nullable: false),
+                    Data = table.Column<byte[]>(type: "bytea", nullable: false),
+                    FileType = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_fileDetails", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "internshipReports",
                 columns: table => new
                 {
@@ -114,7 +128,7 @@ namespace Adni.Data.Migrations
                 columns: table => new
                 {
                     InternshipId = table.Column<Guid>(type: "uuid", nullable: false),
-                    InternshipPlacementId = table.Column<Guid>(type: "uuid", nullable: false),
+                    StudentId = table.Column<Guid>(type: "uuid", nullable: false),
                     IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     IntershipType = table.Column<string>(type: "text", nullable: false)
                 },
@@ -318,6 +332,9 @@ namespace Adni.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "fields");
+
+            migrationBuilder.DropTable(
+                name: "fileDetails");
 
             migrationBuilder.DropTable(
                 name: "internshipReports");

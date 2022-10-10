@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Adni.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221010092720_InitialBuild")]
+    [Migration("20221010110840_InitialBuild")]
     partial class InitialBuild
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,12 +43,14 @@ namespace Adni.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid>("FieldId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Firstname")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<char>("Gender")
@@ -64,9 +66,11 @@ namespace Adni.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("NormalizedEmail")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PasswordHash")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
@@ -82,6 +86,9 @@ namespace Adni.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("UserName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("WhatsappNumber")
                         .HasColumnType("text");
 
                     b.HasKey("AlmUserId");

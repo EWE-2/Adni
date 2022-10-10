@@ -104,14 +104,14 @@ namespace Adni.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("uuid");
-
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("InternType")
                         .HasColumnType("text");
+
+                    b.Property<Guid>("ProspectionId")
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("Student")
                         .HasColumnType("uuid");
@@ -311,13 +311,32 @@ namespace Adni.Data.Migrations
                     b.ToTable("fields");
                 });
 
+            modelBuilder.Entity("Adni.Domain.Entities.FileDetails", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<byte[]>("Data")
+                        .IsRequired()
+                        .HasColumnType("bytea");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("FileType")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("fileDetails");
+                });
+
             modelBuilder.Entity("Adni.Domain.Entities.Internship", b =>
                 {
                     b.Property<Guid>("InternshipId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("InternshipPlacementId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("IntershipType")
@@ -326,6 +345,9 @@ namespace Adni.Data.Migrations
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
+
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("InternshipId");
 
