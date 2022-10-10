@@ -27,12 +27,12 @@ namespace Adni.Data.Contexts
         public DbSet<Field> fields { get; set; }
         public DbSet<Department> departments { get; set; }
         public DbSet<Student> students { get; set; }
-        public DbSet<AlmUser> almUsers { get ; set; }
         public DbSet<Attribution> attributions { get; set; }
-        //public DbSet<InternshipPlacement> internshipPlacements { get; set; }
         public DbSet<Internship> internships { get; set; }
         public DbSet<InternshipReport> internshipReports { get; set; }
         public DbSet<PlacesDisponibles> placesDisponibles { get; set; }
+        public DbSet<FileDetails> fileDetails { get; set; }
+        public DbSet<AlmUser> almUsers { get ; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDateTime dateTime): base(options)
         {
