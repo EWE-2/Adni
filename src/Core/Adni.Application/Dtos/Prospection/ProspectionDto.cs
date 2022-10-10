@@ -2,20 +2,19 @@
 using AutoMapper;
 using System;
 
-namespace Adni.Application.Dtos.Prospection
-{
-    public class ProspectionDto : IMapFrom<Domain.Entities.Prospection>
-    {
-        public Guid ProspectionId { get; set; }
-        public string AcademicYear { get; set; } //Id de la session de stage
-        public Guid EmployeeProspectorId { get; set; }
-        public Guid CompanyId { get; set; }
-        // public IList<DepartmentDto> DesiredDepartmentsList { get; set; }
+namespace Adni.Application.Dtos.Prospection;
 
-        public void Mapping(Profile profile)
-        {
-            profile.CreateMap<Domain.Entities.Prospection, ProspectionDto>()
-                .ForMember(d => d.EmployeeProspectorId, opt => opt.MapFrom(s => (Guid)s.EmployeeProspectorId));
-        }
+public record ProspectionDto : IMapFrom<Domain.Entities.Prospection>
+{
+    public Guid ProspectionId { get; set; }
+    public string AcademicYear { get; set; } //Id de la session de stage
+    public Guid EmployeeProspectorId { get; set; }
+    public Guid CompanyId { get; set; }
+    // public IList<DepartmentDto> DesiredDepartmentsList { get; set; }
+
+    public void Mapping(Profile profile)
+    {
+        profile.CreateMap<Domain.Entities.Prospection, ProspectionDto>()
+            .ForMember(d => d.EmployeeProspectorId, opt => opt.MapFrom(s => (Guid)s.EmployeeProspectorId));
     }
 }

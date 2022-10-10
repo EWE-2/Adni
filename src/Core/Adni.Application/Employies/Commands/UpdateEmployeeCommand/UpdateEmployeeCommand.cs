@@ -34,11 +34,11 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeCommand
             if (employies == null)
                 throw new NotFoundException(nameof(Employies), request.EmployeeId);
 
-            employies.Username = request.Username;
+            employies.UserName = request.Username;
             if (request.Password == null)
-                employies.Password = employies.Password;
+                employies.PasswordHash = employies.PasswordHash;
             else
-                employies.Username = request.Password;
+                employies.UserName = request.Password;
 
             await _context.SaveChangesAsync(cancellationToken);
 

@@ -19,10 +19,10 @@ namespace Adni.Application.Common.Interfaces
         DbSet<Domain.Entities.Student> students {get;set;}
         DbSet<Domain.Entities.AlmUser> almUsers {get;set;}
         DbSet<Attribution> attributions { get; set; }
-        //DbSet<InternshipPlacement> internshipPlacements { get; set; }
         DbSet<Internship> internships { get; set; }
         DbSet<InternshipReport> internshipReports { get; set; }
         DbSet<PlacesDisponibles> placesDisponibles { get; set; }
+        DbSet<FileDetails> fileDetails { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }

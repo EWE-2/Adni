@@ -13,6 +13,7 @@
 	<Folder Include="AlmUser\Command\DeleteAlmUserCommand" />
 	<Folder Include="AlmUser\Command\UpdateAlmUserCommand" />
 	<Folder Include="AlmUser\Command\UpdateAlmUserDetailsCommand" />
+	<Folder Include="Files\Command\" />
 	  <Folder Include="Internship" />
 	  <Folder Include="InternshipPlacement" />
 	  <Folder Include="PlacesDisponible\Commands\DeletePlacesDisponible\" />

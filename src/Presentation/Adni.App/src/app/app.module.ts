@@ -48,6 +48,7 @@ import { RapportStageComponent } from './features/admin/rapport-stage/rapport-st
 import { ImportAlmuserComponent } from './features/admin/insertion-pro/import-almuser/import-almuser.component';
 import { ProfileMenuDropdownComponent } from './components/admin/dropdown/profile-menu-dropdown/profile-menu-dropdown.component';
 import { NotificationsDropdownComponent } from './components/admin/dropdown/notifications-dropdown/notifications-dropdown.component';
+import { CheminComponent } from './components/admin/chemin/chemin.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { NotificationsDropdownComponent } from './components/admin/dropdown/noti
     RapportStageComponent,
     ImportAlmuserComponent,
     ProfileMenuDropdownComponent,
-    NotificationsDropdownComponent
+    NotificationsDropdownComponent,
+    CheminComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, NgChartsModule, ReactiveFormsModule

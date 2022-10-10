@@ -1,57 +1,68 @@
 ﻿using Adni.Application.Common.Interfaces;
-using Adni.Domain.ValueObjects;
 using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand
-{
-    public class UpdateEmployeeInformationsCommand : IRequest
-    {
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string Email { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Location { get; set; }
-        public string Phonenumber { get; set; }
-        public string WhatsappNumber { get; set; }
-        public string DoB { get; set; }
-        public Guid EmployeeId { get; set; }
+namespace Adni.Application.Employies.Commands.UpdateEmployeeDetailsCommand;
 
+public class UpdateEmployeeInformationsCommand : IRequest
+{
+    //Identity user informations
+    public Guid EmployeeId { get; set; }
+    public string? UserName { get; set; }
+    public string Email { get; set; }
+    public string NormalizedEmail { get; set; }
+    public string PasswordHash { get; set; }
+
+    //User self information
+    public string Firstname { get; set; }
+    public string? Lastname { get; set; }
+    public char Gender { get; set; }
+    public string? PhoneNumber { get; set; }
+    public string? WhatsappNumber { get; set; }
+    public string? Dob { get; set; }
+    public string? UserLocation { get; set; }
+
+    public string? ImageDirectory { get; set; }
+
+    public bool IsOnline { get; set; }
+    public string Role { get; set; }
+
+}
+
+public class UpdateEmployeeInformationsCommandHandler : IRequestHandler<UpdateEmployeeInformationsCommand>
+{
+    private IApplicationDbContext _context;
+
+    public UpdateEmployeeInformationsCommandHandler(IApplicationDbContext context)
+    {
+        _context = context;
     }
 
-    public class UpdateEmployeeInformationsCommandHandler : IRequestHandler<UpdateEmployeeInformationsCommand>
+    public async Task<Unit> Handle(UpdateEmployeeInformationsCommand request, CancellationToken cancellationToken)
     {
-        private IApplicationDbContext _context;
+        var emplEntity = await _context.employees.FindAsync(request.EmployeeId);
 
-        public UpdateEmployeeInformationsCommandHandler(IApplicationDbContext context)
-        {
-            _context = context;
-        }
+        emplEntity.UserName = request.UserName;
+        emplEntity.Email = request.Email;
+        emplEntity.NormalizedEmail = request.NormalizedEmail;
+        emplEntity.PasswordHash = request.PasswordHash;
+        //User se = request.EmployeeId;
+        emplEntity.Firstname = request.Firstname;
+        emplEntity.Lastname = request.Lastname;
+        emplEntity.Gender = request.Gender;
+        emplEntity.PhoneNumber = request.PhoneNumber;
+        emplEntity.WhatsappNumber = request.WhatsappNumber;
+        emplEntity.Dob = request.Dob;
+        emplEntity.UserLocation = request.UserLocation;;
+        emplEntity.ImageDirectory = request.ImageDirectory;;
+        emplEntity.IsOnline = false;
+        emplEntity.Role = request.Role;
 
-        public async Task<Unit> Handle(UpdateEmployeeInformationsCommand request, CancellationToken cancellationToken)
-        {
-            var emplEntity = await _context.employees.FindAsync(request.EmployeeId);
+        await _context.SaveChangesAsync(cancellationToken);
 
-            emplEntity.Firstname = request.Firstname;
-            emplEntity.Lastname = request.Lastname;
-            emplEntity.Email = request.Email;
-            emplEntity.Username = request.Username;
-            emplEntity.Password = request.Password;
-            emplEntity.Location = request.Location;
-            emplEntity.Phonenumber = request.Phonenumber;
-            emplEntity.WhatsappNumber = request.WhatsappNumber;
-            emplEntity.DoB = request.DoB;
+        return Unit.Value;
 
-            await _context.SaveChangesAsync(cancellationToken);
-
-            return Unit.Value;
-
-        }
     }
 }

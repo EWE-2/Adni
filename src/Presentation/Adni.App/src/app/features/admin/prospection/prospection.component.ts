@@ -10,7 +10,7 @@ import { Prospection } from 'src/app/models/prospection';
   styleUrls: ['./prospection.component.css']
 })
 export class ProspectionComponent implements OnInit {
-  public prospections?: Prospection[];
+  public prospections?: any[];
 
 
   //Table dropdown

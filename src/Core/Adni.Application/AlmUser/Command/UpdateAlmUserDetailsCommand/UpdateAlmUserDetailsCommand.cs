@@ -42,13 +42,13 @@ namespace Adni.Application.AlmUser.Command
             var user = await _context.almUsers.FindAsync(request.AlmUserId);
 
             user.PhoneNumber = request.PhoneNumber;
-            user.Firtname = request.Firstname;
+            user.Firstname = request.Firstname;
             user.UserName = request.UserName;
             user.Gender = request.Gender;
             user.GraduateYear = request.GraduateYear;
             user.Lastname = request.Lastname;
             user.FieldId = request.FieldId;
-            user.Localisation = request.Localisation;
+            user.UserLocation = request.Localisation;
             user.Dob = request.Dob;
             user.ProStatus = request.ProStatus;
             user.CompanyId = request.CompanyId;

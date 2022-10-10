@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Adni.Application.CompanyLists.Queries.ExportCompanies
-{
-    public class ExportCompaniesVm
-    {
+namespace Adni.Application.CompanyLists.Queries.ExportCompanies;
 
-        public string FileName { get; set; }
-        public string ContentType { get; set; }
-        public byte[] Content { get; set; }
-    }
+public class ExportCompaniesVm
+{
+
+    public string FileName { get; set; }
+    public string ContentType { get; set; }
+    public byte[] Content { get; set; }
 }

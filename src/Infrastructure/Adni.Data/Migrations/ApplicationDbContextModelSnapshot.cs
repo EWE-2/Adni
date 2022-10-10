@@ -31,12 +31,13 @@ namespace Adni.Data.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("CompanyLocalisation")
+                        .HasColumnType("text");
+
                     b.Property<string>("Contrat")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Dob")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
@@ -46,7 +47,7 @@ namespace Adni.Data.Migrations
                     b.Property<Guid>("FieldId")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Firtname")
+                    b.Property<string>("Firstname")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -54,15 +55,12 @@ namespace Adni.Data.Migrations
                         .HasColumnType("character(1)");
 
                     b.Property<string>("GraduateYear")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImageDirectory")
                         .HasColumnType("text");
 
                     b.Property<string>("Lastname")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Localisation")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("NormalizedEmail")
@@ -74,19 +72,21 @@ namespace Adni.Data.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Position")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ProStatus")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserLocation")
                         .HasColumnType("text");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("WhatsappNumber")
                         .HasColumnType("text");
 
                     b.HasKey("AlmUserId");
@@ -104,14 +104,14 @@ namespace Adni.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("uuid");
-
                     b.Property<Guid>("EmployeeId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("InternType")
                         .HasColumnType("text");
+
+                    b.Property<Guid>("ProspectionId")
+                        .HasColumnType("uuid");
 
                     b.Property<Guid>("Student")
                         .HasColumnType("uuid");
@@ -208,8 +208,7 @@ namespace Adni.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("DoB")
-                        .IsRequired()
+                    b.Property<string>("Dob")
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
@@ -223,35 +222,40 @@ namespace Adni.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<char>("Gender")
+                        .HasColumnType("character(1)");
+
+                    b.Property<string>("ImageDirectory")
+                        .HasColumnType("text");
+
                     b.Property<bool>("IsOnline")
                         .HasColumnType("boolean");
 
                     b.Property<string>("Lastname")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NormalizedEmail")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Location")
+                    b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Phonenumber")
-                        .IsRequired()
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("text");
 
                     b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
+                    b.Property<string>("UserLocation")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserName")
                         .HasColumnType("text");
 
                     b.Property<string>("WhatsappNumber")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("EmployeeId");
@@ -307,13 +311,32 @@ namespace Adni.Data.Migrations
                     b.ToTable("fields");
                 });
 
+            modelBuilder.Entity("Adni.Domain.Entities.FileDetails", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<byte[]>("Data")
+                        .IsRequired()
+                        .HasColumnType("bytea");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("FileType")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("fileDetails");
+                });
+
             modelBuilder.Entity("Adni.Domain.Entities.Internship", b =>
                 {
                     b.Property<Guid>("InternshipId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("InternshipPlacementId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("IntershipType")
@@ -323,36 +346,12 @@ namespace Adni.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("InternshipId");
 
                     b.ToTable("internships");
-                });
-
-            modelBuilder.Entity("Adni.Domain.Entities.InternshipPlacement", b =>
-                {
-                    b.Property<Guid>("InternshipPlacementId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("InternType")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<Guid>("IntershipDcm")
-                        .HasColumnType("uuid");
-
-                    b.Property<bool>("IsCompleted")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("IsSend")
-                        .HasColumnType("boolean");
-
-                    b.HasKey("InternshipPlacementId");
-
-                    b.ToTable("internshipPlacements");
                 });
 
             modelBuilder.Entity("Adni.Domain.Entities.InternshipReport", b =>
@@ -397,7 +396,7 @@ namespace Adni.Data.Migrations
 
                     b.HasIndex("ProspectionId");
 
-                    b.ToTable("PlacesDisponibles");
+                    b.ToTable("placesDisponibles");
                 });
 
             modelBuilder.Entity("Adni.Domain.Entities.Prospection", b =>
@@ -453,39 +452,43 @@ namespace Adni.Data.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("DoB")
+                    b.Property<string>("Dob")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<Guid>("FieldId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Firstname")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid?>("InternshipPlacementId")
-                        .HasColumnType("uuid");
+                    b.Property<char>("Gender")
+                        .HasColumnType("character(1)");
+
+                    b.Property<string>("ImageDirectory")
+                        .HasColumnType("text");
 
                     b.Property<string>("Lastname")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Location")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Matricule")
                         .HasColumnType("text");
 
-                    b.Property<string>("Phonenumber")
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("WhatsappNumber")
+                    b.Property<string>("UserLocation")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("StudentId");
-
-                    b.HasIndex("InternshipPlacementId");
 
                     b.ToTable("students");
                 });
@@ -533,13 +536,6 @@ namespace Adni.Data.Migrations
                         .HasForeignKey("ProspectionsListId");
                 });
 
-            modelBuilder.Entity("Adni.Domain.Entities.Student", b =>
-                {
-                    b.HasOne("Adni.Domain.Entities.InternshipPlacement", null)
-                        .WithMany("Students")
-                        .HasForeignKey("InternshipPlacementId");
-                });
-
             modelBuilder.Entity("Adni.Domain.Entities.CompaniesList", b =>
                 {
                     b.Navigation("Companies");
@@ -553,11 +549,6 @@ namespace Adni.Data.Migrations
             modelBuilder.Entity("Adni.Domain.Entities.EmployeesList", b =>
                 {
                     b.Navigation("Employees");
-                });
-
-            modelBuilder.Entity("Adni.Domain.Entities.InternshipPlacement", b =>
-                {
-                    b.Navigation("Students");
                 });
 
             modelBuilder.Entity("Adni.Domain.Entities.Prospection", b =>

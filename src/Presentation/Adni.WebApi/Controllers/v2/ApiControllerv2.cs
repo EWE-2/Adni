@@ -6,8 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Adni.WebApi.Controllers.v2
 {
     [ApiVersion("2.0")]
-    [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [ApiController]
     public class ApiControllerv2 : ControllerBase
     {
         protected ISender _sender;

@@ -40,7 +40,7 @@ public class ImportAlmUserCommandHandler : IRequestHandler<ImportAlmUserCommand,
         // liste des almUser existant dans la base de donnees
         var almUserNames = _context.almUsers
             .AsNoTracking()
-            .ToDictionary(x => x.Firtname, StringComparer.OrdinalIgnoreCase);
+            .ToDictionary(x => x.Firstname, StringComparer.OrdinalIgnoreCase);
 
         //nombre de lignes vides avant arret de l'importation: arret apres 3 lignes vides
         int vRowLimit = 0;
@@ -90,8 +90,8 @@ public class ImportAlmUserCommandHandler : IRequestHandler<ImportAlmUserCommand,
                 Email = email,
                 NormalizedEmail = email.ToUpper(),
                 PasswordHash = email,
-                Firtname = firstname,
-                Lastname = firstname,
+                Firstname = firstname,
+                Lastname = "",
                 Gender = gender,
                 FieldId = new Guid("92004546-2065-457f-affc-0c39fc371fe6"),
                 GraduateYear = graduateYear,
@@ -101,7 +101,7 @@ public class ImportAlmUserCommandHandler : IRequestHandler<ImportAlmUserCommand,
                 CompanyId = new Guid("5d05ae49-bff7-43e7-87fa-53d80743101c"),
                 Position = (!(position == null)) ? position : "Undefined",
                 Contrat = (!(contrat == null)) ? contrat: "CDD",
-                Localisation = (!(localisation == null)) ? localisation: "Unknow"
+                UserLocation = (!(localisation == null)) ? localisation: "Unknow"
             };
 
             //sending a command : adding current alumni to the database

@@ -9,17 +9,26 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
 {
     public class AddEmployeeCommand : IRequest<Guid>
     {
+        //Identity user informations
+        public Guid EmployeeId { get; set; }
+        public string? UserName { get; set; }
+        public string Email { get; set; }
+        public string NormalizedEmail { get; set; }
+        public string PasswordHash { get; set; }
+
+        //User self information
+        public string Firstname { get; set; }
+        public string? Lastname { get; set; }
+        public char Gender { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? WhatsappNumber { get; set; }
+        public string? Dob { get; set; }
+        public string? UserLocation { get; set; }
+
+        public string? ImageDirectory { get; set; }
+
         public bool IsOnline { get; set; }
         public string Role { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string Email { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string Location { get; set; }
-        public string Phonenumber { get; set; }
-        public string WhatsappNumber { get; set; }
-        public string DoB { get; set; }
     }
 
     public class AddEmployeeCommandHandler : IRequestHandler<AddEmployeeCommand, Guid>
@@ -34,17 +43,26 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
         {
             var emplEntity = new Employee
             {
-                IsOnline = false,
-                Role = request.Role,
+                EmployeeId = request.EmployeeId,
+                UserName = request.UserName,
+                Email = request.Email,
+                NormalizedEmail = request.NormalizedEmail,
+                PasswordHash = request.PasswordHash,
+
+                //User se = request.EmployeeId,
                 Firstname = request.Firstname,
                 Lastname = request.Lastname,
-                Email = request.Email,
-                Username = request.Username,
-                Password = request.Password,
-                Location = request.Location,
-                Phonenumber = request.Phonenumber,
+                Gender = request.Gender,
+                PhoneNumber = request.PhoneNumber,
                 WhatsappNumber = request.WhatsappNumber,
-                DoB = request.DoB, 
+                Dob = request.Dob,
+                UserLocation = request.UserLocation,
+
+                ImageDirectory = request.ImageDirectory,
+
+                IsOnline = false,
+                Role = request.Role
+                 
             };
 
             _context.employees.Add(emplEntity);

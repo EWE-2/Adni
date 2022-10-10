@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Adni.Application.Common.Mappings;
+﻿using Adni.Application.Common.Mappings;
 using Adni.Domain.Entities;
-using Adni.Domain.Enums;
 
 namespace Adni.Application.EmployeesLists.Queries.ExportEmployees
 {

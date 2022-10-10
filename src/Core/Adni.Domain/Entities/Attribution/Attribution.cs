@@ -17,14 +17,18 @@ namespace Adni.Domain.Entities
         /// type du stage
         /// </summary>
         public string? InternType { get; set; }
-        /// <summary>
-        /// Entreprise attribue 
-        /// </summary>
-        public Guid CompanyId { get; set; }
+        ///// <summary>
+        ///// Entreprise attribue 
+        ///// </summary>
+        //public Guid CompanyId { get; set; }
         /// <summary>
         /// Etudiant beneficiaire
         /// </summary>
         public Guid Student { get; set; }
-        
+        /// <summary>
+        /// Identifiant de la prospection
+        /// </summary>
+        public Guid ProspectionId { get; set; }
+
     }
 }
