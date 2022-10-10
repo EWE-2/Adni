@@ -15,7 +15,7 @@ namespace Adni.Identity.Helpers
     {
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var user = (User)context.HttpContext.Items["User"];
+            var user = (Employee)context.HttpContext.Items["Employee"];
 
             if(user == null)
             {

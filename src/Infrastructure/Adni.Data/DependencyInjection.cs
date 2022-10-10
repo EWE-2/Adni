@@ -14,7 +14,8 @@ namespace Adni.Data
     {
         public static IServiceCollection AddInfrastructureData(this IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=AdniDatabse.sqlite3"));
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite("Data Source=AdniDatabse.sqlite3"));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(@"host=localhost:5432;database=adniTest;user id=adniSYS;password=00000;"));
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 

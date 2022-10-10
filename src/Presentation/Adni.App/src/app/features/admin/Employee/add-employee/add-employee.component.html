@@ -1,0 +1,89 @@
+<div class="container px-6 mx-auto grid">
+  <h2 class="my-6 text-2xl font-semibold text-slate-700 dark:text-slate-200">
+    Nouveau personnel
+  </h2>
+
+  <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md max-w-full lg:flex-none dark:bg-slate-800">
+    <div class="flex flex-wrap sm:px-auto sm:flex-reverse">
+      <div class="w-full max-w-full px-3 mb-4 xl:mb-0 xl:w-1/2 xl:flex-none">
+        <label class="mt-3 block text-sm">
+          <span class="text-slate-700 dark:text-slate-400">Nom</span>
+          <input class="block w-full mt-1 text-sm border-slate-400 text-black dark:text-slate-300 dark:border-slate-600 dark:bg-slate-700 focus:border-none focus:outline-4 focus:outline-offset-0 focus:outline-violet-600/25 focus:shadow-outline-violet dark:focus:shadow-outline-slate form-input rounded-md" placeholder="Nom">
+        </label>
+
+        <label class="mt-3 block text-sm">
+          <span class="text-slate-700 dark:text-slate-400">Prenom</span>
+          <input class="block w-full mt-1 text-sm border-slate-400 text-black dark:text-slate-300 dark:border-slate-600 dark:bg-slate-700 focus:border-none focus:outline-4 focus:outline-offset-0 focus:outline-violet-600/25 focus:shadow-outline-violet dark:focus:shadow-outline-slate form-input rounded-md" placeholder="Prenom">
+        </label>
+
+        <label class="mt-3 block text-sm">
+          <span class="text-slate-700 dark:text-slate-400">Numero de telephone</span>
+          <input class="block w-full mt-1 text-sm border-slate-400 text-black dark:text-slate-300 dark:border-slate-600 dark:bg-slate-700 focus:border-none focus:outline-4 focus:outline-offset-0 focus:outline-violet-600/25 focus:shadow-outline-violet dark:focus:shadow-outline-slate form-input rounded-md" placeholder="Jane Doe">
+        </label>
+      </div>
+
+      <div class="w-full max-w-full px-3 xl:w-1/2 xl:flex-none">
+        <div class="relative flex flex-col w-1/2 h-full min-w-0 break-words bg-transparent border border-solid shadow-none rounded-lg border-slate-400 bg-clip-border">
+          <div class="flex flex-col justify-center flex-auto p-6 text-center">
+            <a routerLink="">
+              <i class="mb-4 fa fa-plus text-slate-400"></i>
+              <h5 class="text-slate-400">Photo</h5>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <label class="mx-3 mt-3 block text-sm">
+      <span class="text-slate-700 dark:text-slate-400">Email</span>
+      <div class="relative text-slate-500 focus-within:text-violet-600 dark:focus-within:text-violet-400">
+        <input class="block w-full pl-10 mt-1 text-sm border-slate-400 text-black dark:text-slate-300 dark:border-slate-600 dark:bg-slate-700 focus:border-none focus:outline-4 focus:outline-offset-0 focus:outline-violet-600/25 focus:shadow-outline-violet dark:focus:shadow-outline-slate form-input rounded-md" placeholder="adni@enspd-udo.cm">
+        <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none">
+          <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+      </div>
+    </label>
+
+    <label class="mx-3 mt-3 block text-sm">
+      <span class="text-slate-700 dark:text-slate-400">Localisation</span>
+      <input class="block w-full mt-1 text-sm border-slate-400 text-black dark:text-slate-300 dark:border-slate-600 dark:bg-slate-700 focus:border-none focus:outline-4 focus:outline-offset-0 focus:outline-violet-600/25 focus:shadow-outline-violet dark:focus:shadow-outline-slate form-input rounded-md" placeholder="Douala, Bonaberi">
+    </label>
+
+    <label class="mx-3 block mt-4 text-sm">
+      <span class="text-slate-700 dark:text-slate-400">
+        Role
+      </span>
+      <select class="block w-full mt-1 text-sm border-slate-400 text-black dark:text-slate-300 dark:border-slate-600 dark:bg-slate-700 focus:border-none focus:outline-4 focus:outline-offset-0 focus:outline-violet-600/25 focus:shadow-outline-violet dark:focus:shadow-outline-slate form-input rounded-md">
+        <option value="default">Selectionner un role</option>
+        <option>DSE</option>
+        <option>SFAIP</option>
+        <option>AST</option>
+        <option>SAT</option>
+      </select>
+    </label>
+
+    <label class="mx-3 mt-3 block text-sm">
+      <span class="text-slate-700 dark:text-slate-400">Date de naissance</span>
+      <input class="block w-full mt-1 text-sm border-slate-400 text-black dark:text-slate-300 dark:border-slate-600 dark:bg-slate-700 focus:border-none focus:outline-4 focus:outline-offset-0 focus:outline-violet-600/25 focus:shadow-outline-violet dark:focus:shadow-outline-slate form-input rounded-md" placeholder="18-02-1997">
+    </label>
+
+    <div class="flex flex-col items-end flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4">
+      <div class="mx-3">
+        <button routerLink="/admin/employees" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-600 hover:bg-red-700 focus:outline-none focus:shadow-outline-violet">
+          Annuler
+        </button>
+      </div>
+      <div>
+        <button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-violet-600 border border-transparent rounded-lg active:bg-violet-600 hover:bg-violet-700 focus:outline-none focus:shadow-outline-violet">
+          Enregistrer
+        </button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>

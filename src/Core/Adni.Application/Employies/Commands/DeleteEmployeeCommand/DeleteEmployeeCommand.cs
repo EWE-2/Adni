@@ -1,5 +1,6 @@
 ﻿using Adni.Application.Common.Exceptions;
 using Adni.Application.Common.Interfaces;
+using Adni.Domain.ValueObjects;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Adni.Application.Employies.Commands.DeleteEmployeeCommand
 
     public class DeleteEmployeeCommandHandler : IRequestHandler<DeleteEmployeeCommand>
     {
-        private IApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
         public DeleteEmployeeCommandHandler(IApplicationDbContext context)
         {

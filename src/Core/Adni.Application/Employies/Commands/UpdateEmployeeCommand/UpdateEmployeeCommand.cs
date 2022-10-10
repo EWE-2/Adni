@@ -1,5 +1,6 @@
 ﻿using Adni.Application.Common.Exceptions;
 using Adni.Application.Common.Interfaces;
+using Adni.Domain.ValueObjects;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,8 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeCommand
     public partial class UpdateEmployeeCommand : IRequest
     {
         public Guid EmployeeId { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 
     public class UpdateEmployeeCommandHandler : IRequestHandler<UpdateEmployeeCommand>
@@ -33,8 +34,11 @@ namespace Adni.Application.Employies.Commands.UpdateEmployeeCommand
             if (employies == null)
                 throw new NotFoundException(nameof(Employies), request.EmployeeId);
 
-            employies.Firstname = request.Firstname;
-            employies.Lastname = request.Lastname;
+            employies.UserName = request.Username;
+            if (request.Password == null)
+                employies.PasswordHash = employies.PasswordHash;
+            else
+                employies.UserName = request.Password;
 
             await _context.SaveChangesAsync(cancellationToken);
 

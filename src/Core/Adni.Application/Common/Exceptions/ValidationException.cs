@@ -7,7 +7,7 @@ namespace Adni.Application.Common.Exceptions
 {
     public class ValidationException: Exception
     {
-        public ValidationException(): base("One or more validation failures have occured.")
+        public ValidationException(): base("Une ou plusieur erreurs de validations ont survenues.")
         {
             Errors = new Dictionary<string, string[]>();
         }

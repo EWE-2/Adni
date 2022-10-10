@@ -50,7 +50,7 @@ namespace Adni.Identity.Helpers
                 var jwtToken = (JwtSecurityToken)validatedToken;
                 var userId = Guid.Parse(jwtToken.Claims.First(c => c.Type == "id").Value);
 
-                context.Items["User"] = userService.GetById(userId);
+                context.Items["Employee"] = userService.GetById(userId);
             }
             catch { }
         }

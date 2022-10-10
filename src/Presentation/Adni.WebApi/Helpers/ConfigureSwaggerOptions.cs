@@ -12,12 +12,12 @@ namespace Adni.WebApi.Helpers
         private readonly IApiVersionDescriptionProvider _provider;
         public ConfigureSwaggerOptions(IApiVersionDescriptionProvider provider) => _provider = provider;
 
+        /**<summary>
+        * Le comportement <c>Configure</c> ajoute une documentation pour toute version de l'api decouverte
+        * </summary>
+        */
         public void Configure(SwaggerGenOptions options)
         {
-            /**<summary>
-             * Le comportement <c>Configure</c> ajoute une documentation pour toute version de l'api decouverte
-             * </summary>
-             */
             foreach (var description in _provider.ApiVersionDescriptions)
                 options.SwaggerDoc(description.GroupName, CreateInfoForApiVersion(description));
         }
@@ -28,10 +28,10 @@ namespace Adni.WebApi.Helpers
             {
                 Title = "Adni",
                 Version = description.ApiVersion.ToString(),
-                Description = "Service web de l'application de gestion des stage",
+                Description = "Service web de l'application de gestion des stage et suivi de l'insertion professionnelle",
                 Contact = new OpenApiContact
                 {
-                    Name = "LegendsGroup",
+                    Name = "LightDigit",
                     Email = "EWANE.EWANE@hotmail.com",
                     Url = new Uri("https://adniapp.cm/support")
                 },

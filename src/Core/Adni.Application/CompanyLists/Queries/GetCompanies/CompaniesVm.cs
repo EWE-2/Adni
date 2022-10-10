@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Adni.Application.Dtos.Company;
+using Adni.Application.Dtos;
 
 
-namespace Adni.Application.CompanyLists.GetCompanies
+namespace Adni.Application.CompanyLists.GetCompanies;
+
+public class CompaniesVm
 {
-    public class EmployeesVm
-    {
-        public IList<CompanyDto> Lists { get; set; }
-    }
+    public IList<CompanyDto> Lists { get; set; }
 }

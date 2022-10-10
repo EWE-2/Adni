@@ -17,6 +17,7 @@ namespace Adni.Shared
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<ICsvFileBuilder, CsvFileBuilder>();
+            services.AddScoped<IFileService, FileService>();
 
             return services;
         }

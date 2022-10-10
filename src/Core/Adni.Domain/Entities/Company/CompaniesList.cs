@@ -8,11 +8,11 @@ namespace Adni.Domain.Entities
     {
         public CompaniesList()
         {
-            _companies = new List<Company>();
+            Companies = new List<Company>();
         }
 
-        public IList<Company> _companies { get;set; }
-        public Guid _companiesListId { get;set; }
+        public Guid CompaniesListId { get;set; }
+        public IList<Company> Companies { get;set; }
         public string City { get;set; }
     }
 }

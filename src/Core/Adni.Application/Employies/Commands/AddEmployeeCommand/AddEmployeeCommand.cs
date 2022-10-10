@@ -2,9 +2,6 @@
 using Adni.Domain.Entities;
 using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,19 +9,31 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
 {
     public class AddEmployeeCommand : IRequest<Guid>
     {
+        //Identity user informations
+        public Guid EmployeeId { get; set; }
+        public string? UserName { get; set; }
+        public string Email { get; set; }
+        public string NormalizedEmail { get; set; }
+        public string PasswordHash { get; set; }
+
+        //User self information
         public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string Location { get; set; }
-        public string Phonenumber { get; set; }
-        public string WhatsappNumber { get; set; }
-        public DateTime DoB { get; set; }
+        public string? Lastname { get; set; }
+        public char Gender { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? WhatsappNumber { get; set; }
+        public string? Dob { get; set; }
+        public string? UserLocation { get; set; }
+
+        public string? ImageDirectory { get; set; }
+
         public bool IsOnline { get; set; }
-        public string Position { get; private set; }
+        public string Role { get; set; }
     }
 
     public class AddEmployeeCommandHandler : IRequestHandler<AddEmployeeCommand, Guid>
     {
-        private IApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
         public AddEmployeeCommandHandler(IApplicationDbContext context)
         {
@@ -34,14 +43,26 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
         {
             var emplEntity = new Employee
             {
+                EmployeeId = request.EmployeeId,
+                UserName = request.UserName,
+                Email = request.Email,
+                NormalizedEmail = request.NormalizedEmail,
+                PasswordHash = request.PasswordHash,
+
+                //User se = request.EmployeeId,
                 Firstname = request.Firstname,
                 Lastname = request.Lastname,
-                Location = request.Location,
-                Phonenumber = request.Phonenumber,
+                Gender = request.Gender,
+                PhoneNumber = request.PhoneNumber,
                 WhatsappNumber = request.WhatsappNumber,
-                DoB = request.DoB, 
-                Position = request.Position,
+                Dob = request.Dob,
+                UserLocation = request.UserLocation,
+
+                ImageDirectory = request.ImageDirectory,
+
                 IsOnline = false,
+                Role = request.Role
+                 
             };
 
             _context.employees.Add(emplEntity);

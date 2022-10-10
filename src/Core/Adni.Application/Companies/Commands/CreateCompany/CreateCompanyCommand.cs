@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using Adni.Domain.Entities;
-using Adni.Domain.Interfaces;
 
 namespace Adni.Application.Companies.Commands.CreateCompany
 {
@@ -28,7 +27,7 @@ namespace Adni.Application.Companies.Commands.CreateCompany
 
     public class CreateCompanyCommandHandler : IRequestHandler<CreateCompanyCommand, Guid>
     {
-        private IApplicationDbContext _context;
+        private readonly IApplicationDbContext _context;
 
         public CreateCompanyCommandHandler(IApplicationDbContext context)
         {

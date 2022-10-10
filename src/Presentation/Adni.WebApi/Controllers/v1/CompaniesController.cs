@@ -12,6 +12,7 @@ namespace Adni.WebApi.Controllers.v1
     public class CompaniesController : ApiController
     {
         private readonly ApplicationDbContext _context;
+
         public CompaniesController(ApplicationDbContext context)
         {
             _context = context;
@@ -22,7 +23,7 @@ namespace Adni.WebApi.Controllers.v1
         {
             return Ok(_context.companies);
         }
-        [HttpPost("Add")]
+        [HttpPost("Ajouter")]
         public async Task<ActionResult<Guid>> Create(CreateCompanyCommand command)
         {
             //await _context.Companies.AddAsync(company);
@@ -30,7 +31,7 @@ namespace Adni.WebApi.Controllers.v1
             return await Mediator.Send(command);
         }
 
-        [HttpDelete("Delete/{id}")]
+        [HttpDelete("Supprimer/{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
             await Mediator.Send(new DeleteCompanyCommand { Id = id});
@@ -46,7 +47,7 @@ namespace Adni.WebApi.Controllers.v1
             return NoContent();
         }
 
-        [HttpPut("updatedetails")]
+        [HttpPut("modifierdetails")]
         public async Task<ActionResult> UpdateDetails(Guid id, UpdateCompanyDetailsCommand command)
         {
             if (id != command.Id)

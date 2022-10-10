@@ -1,19 +1,32 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
+  
   <ItemGroup>
 	<Folder Include="Common\Exceptions" />
 	<Folder Include="Common\Behaviors" />
-	<PackageReference Include="AutoMapper" Version="11.0.0" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-    <PackageReference Include="FluentValidation" Version="10.4.0" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.4.0" />
+	<Folder Include="Department\Queries\GetDepartments\" />
+	<Folder Include="AlmUser\Command\CreateAlmUserCommand" />
+	<Folder Include="AlmUser\Command\DeleteAlmUserCommand" />
+	<Folder Include="AlmUser\Command\UpdateAlmUserCommand" />
+	<Folder Include="AlmUser\Command\UpdateAlmUserDetailsCommand" />
+	<Folder Include="Files\Command\" />
+	  <Folder Include="Internship" />
+	  <Folder Include="InternshipPlacement" />
+	  <Folder Include="PlacesDisponible\Commands\DeletePlacesDisponible\" />
+	  <Folder Include="PlacesDisponible\Commands\UpdatePlacesDisponible\" />
+
+	<PackageReference Include="AutoMapper" Version="11.0.1" />
+	<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+	<PackageReference Include="EPPlus" Version="6.0.6" />
+    <PackageReference Include="FluentValidation" Version="11.2.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.2.0" />
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
   </ItemGroup>
 

@@ -9,6 +9,7 @@ using Adni.Application.Common.Interfaces;
 using Adni.Application.CompanyLists.Queries.ExportCompanies;
 using System.Globalization;
 using Adni.Application.EmployeesLists.Queries.ExportEmployees;
+using Adni.Application.ProspectionList.Queries.ExportProspections;
 
 namespace Adni.Shared.Files
 {
@@ -27,6 +28,18 @@ namespace Adni.Shared.Files
         }
 
         public byte[] BuildEmployeesFile(IEnumerable<EmployeeItemRecord> records)
+        {
+            using var memoryStream = new MemoryStream();
+            using (var streamWriter = new StreamWriter(memoryStream))
+            {
+                using var csvWriter = new CsvWriter(streamWriter, CultureInfo.InvariantCulture);
+                csvWriter.WriteRecord(records);
+            }
+
+            return memoryStream.ToArray();
+        }
+
+        public byte[] BuildProspectionsFile(IEnumerable<ProspectionsItemRecord> records)
         {
             using var memoryStream = new MemoryStream();
             using (var streamWriter = new StreamWriter(memoryStream))

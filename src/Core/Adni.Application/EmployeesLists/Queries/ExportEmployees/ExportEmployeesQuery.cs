@@ -9,6 +9,7 @@ using MediatR;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using System.Threading;
+using Adni.Domain.ValueObjects;
 
 namespace Adni.Application.EmployeesLists.Queries.ExportEmployees
 {

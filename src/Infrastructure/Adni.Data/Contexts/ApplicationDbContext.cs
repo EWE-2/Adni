@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Adni.Domain.Entities;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Adni.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -22,11 +18,21 @@ namespace Adni.Data.Contexts
         {
             
         }
-        //public DbSet<Company> Companies { get; set; }
-        //public DbSet<CompaniesList> companiesLists { get; set; }
+        public DbSet<CompaniesList> companiesLists { get; set; }
         public DbSet<Employee> employees { get ; set; }
         public DbSet<EmployeesList> employeesLists { get; set; }
         public DbSet<Company> companies { get; set; }
+        public DbSet<Prospection> prospections { get ; set; }
+        public DbSet<ProspectionsList> prospectionsList { get ; set; }
+        public DbSet<Field> fields { get; set; }
+        public DbSet<Department> departments { get; set; }
+        public DbSet<Student> students { get; set; }
+        public DbSet<Attribution> attributions { get; set; }
+        public DbSet<Internship> internships { get; set; }
+        public DbSet<InternshipReport> internshipReports { get; set; }
+        public DbSet<PlacesDisponibles> placesDisponibles { get; set; }
+        public DbSet<FileDetails> fileDetails { get; set; }
+        public DbSet<AlmUser> almUsers { get ; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IDateTime dateTime): base(options)
         {
@@ -86,6 +92,9 @@ namespace Adni.Data.Contexts
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            //configuration de la relation Prospection et Field sans cle etrangere chez Field
+            //et une navigation simple sur Prospection
+            
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             base.OnModelCreating(builder);

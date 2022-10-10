@@ -10,40 +10,39 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using System.Threading;
 
-namespace Adni.Application.CompanyLists.Queries.ExportCompanies
+namespace Adni.Application.CompanyLists.Queries.ExportCompanies;
+
+public class ExportCompaniesQuery: IRequest<ExportCompaniesVm>
 {
-    public class ExportEmployeesQuery: IRequest<ExportEmployeesVm>
+    public Guid Id { get; set; }
+}
+
+public class ExportCompaniesHandler : IRequestHandler<ExportCompaniesQuery, ExportCompaniesVm>
+{
+    private readonly IApplicationDbContext _context;
+    private readonly IMapper _mapper;
+    private readonly ICsvFileBuilder _fileBuilder;
+
+    public ExportCompaniesHandler(IApplicationDbContext context, IMapper mapper, ICsvFileBuilder fileBuilder)
     {
-        public Guid Id { get; set; }
+        _context = context;
+        _mapper = mapper;
+        _fileBuilder = fileBuilder;
     }
 
-    public class ExportCompaniesHandler : IRequestHandler<ExportEmployeesQuery, ExportEmployeesVm>
+    public async Task<ExportCompaniesVm> Handle(ExportCompaniesQuery request, CancellationToken cancellationToken)
     {
-        private readonly IApplicationDbContext _context;
-        private readonly IMapper _mapper;
-        private readonly ICsvFileBuilder _fileBuilder;
+        var vm = new ExportCompaniesVm();
 
-        public ExportCompaniesHandler(IApplicationDbContext context, IMapper mapper, ICsvFileBuilder fileBuilder)
-        {
-            _context = context;
-            _mapper = mapper;
-            _fileBuilder = fileBuilder;
-        }
+        var records = await _context.companies
+            .Where(t => t.Id == request.Id)
+            .ProjectTo<CompanyItemRecord>(_mapper.ConfigurationProvider)
+            .ToListAsync(cancellationToken); 
 
-        public async Task<ExportEmployeesVm> Handle(ExportEmployeesQuery request, CancellationToken cancellationToken)
-        {
-            var vm = new ExportEmployeesVm();
+        vm.Content = _fileBuilder.BuildCompaniesFile(records);
+        vm.ContentType = "text/csv";
+        vm.FileName = "Entreprises.csv";
 
-            var records = await _context.companies
-                .Where(t => t.Id == request.Id)
-                .ProjectTo<CompanyItemRecord>(_mapper.ConfigurationProvider)
-                .ToListAsync(cancellationToken); 
-
-            vm.Content = _fileBuilder.BuildCompaniesFile(records);
-            vm.ContentType = "text/csv";
-            vm.FileName = "Entreprises.csv";
-
-            return await Task.FromResult(vm);
-        }
+        return await Task.FromResult(vm);
     }
 }

@@ -7,7 +7,7 @@ using FluentValidation;
 using Adni.Application.Common.Interfaces;
 
 namespace Adni.Application.CompanyLists.Commands.UpdateCompanyList
-{/*
+{
     public class UpdateCompanyListCommandValidator : AbstractValidator<UpdateCompanyListCommand>
     {
         private readonly IApplicationDbContext _context;
@@ -19,5 +19,5 @@ namespace Adni.Application.CompanyLists.Commands.UpdateCompanyList
             RuleFor(v => v.City)
                 .NotEmpty().WithMessage("La ville est obligatoire");
         }
-    }*/
+    }
 }
