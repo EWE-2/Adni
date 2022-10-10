@@ -11,9 +11,9 @@ namespace Adni.Domain.Entities //A REVOIR ENTIEREMENT
     {
         public Guid InternshipId { get; set; }
         /// <summary>
-        /// Identifiant de la mise en stage concernee
+        /// Identifiant de l'etudiant en stage
         /// </summary>
-        public Guid InternshipPlacementId { get; set; }
+        public Guid StudentId { get; set; }
         /// <summary>
         /// <code>IsActive</code> defini si le stage est encours ou non
         /// </summary>

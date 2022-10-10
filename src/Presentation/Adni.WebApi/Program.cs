@@ -75,7 +75,7 @@ builder.Services.AddVersionedApiExplorer(options =>
     options.GroupNameFormat = "'v'VVV";
 });
 
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(@"host=localhost:5432;database=adniDB;user id=adniSYS;password=00000; "));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(@"host=localhost:5432;database=adniTest;user id=adniSYS;password=00000; "));
 
 
 var app = builder.Build();
