@@ -1,4 +1,4 @@
-export interface Field{
+export interface IField{
   fieldId: string;
   fieldName: string;
   fieldCigle: string;

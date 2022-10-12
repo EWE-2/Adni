@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartType, ChartData, ChartEvent } from 'chart.js';
+import { DashboardEltsService } from './dashboard-elts.service';
 
 @Component({
   selector: 'app-dashboard-feature',
@@ -17,9 +18,15 @@ export class DashboardFeatureComponent implements OnInit {
   //   center: latLng(46.879966, -121.726909)
   // };
 
-  constructor() { }
+  /**============= Number of students for students card in the dashboard ==============*/
+  // services import
+  public stdCount! : number;
+
+  constructor(private studentCountService: DashboardEltsService) { }
 
   ngOnInit(): void {
+    this.stdCount = this.studentCountService.countStudents();
+    console.log(5);
   }
 
   //

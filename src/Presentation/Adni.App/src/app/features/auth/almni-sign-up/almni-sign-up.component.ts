@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { AlmUser } from 'src/app/models/AlmUser';
+import { IAlmUser } from 'src/app/models/AlmUser';
 
 import { environment } from 'src/environments/environment';
 
@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AlmniSignUpComponent implements OnInit {
   form!: FormGroup;
-  almUser?: AlmUser;
+  almUser?: IAlmUser;
 
   constructor( private http: HttpClient) { }
 
@@ -35,31 +35,35 @@ export class AlmniSignUpComponent implements OnInit {
   }
 
   onSubmit(){
-    var user: AlmUser = {
-      userName: this.form.controls['firtname'].value,
-      email: this.form.controls['email'].value,
-      normalizedEmail: this.form.controls['email'].value,
-      passwordHash: this.form.controls['email'].value + this.form.controls['gender'].value,
-      firtname: this.form.controls['firtname'].value,
-      lastname: this.form.controls['lastname'].value,
-      gender: this.form.controls['gender'].value,
-      fieldId: this.form.controls['fieldId'].value,
-      graduateYear: this.form.controls['graduateYears'].value,
-      phoneNumber: this.form.controls['phoneNumber'].value,
-      dob: this.form.controls['dob'].value,
-      proStatus: this.form.controls['proStatus'].value,
-      companyId: this.form.controls['company'].value,
-      position: this.form.controls['position'].value,
-      contrat: this.form.controls['contrat'].value,
-      localisation: this.form.controls['localisation'].value
+    var user: IAlmUser = {
+      UserName: this.form.controls['firtname'].value,
+      Email: this.form.controls['email'].value,
+      NormalizedEmail: this.form.controls['email'].value,
+      PasswordHash: this.form.controls['email'].value + this.form.controls['gender'].value,
+      Firtname: this.form.controls['firtname'].value,
+      Lastname: this.form.controls['lastname'].value,
+      Gender: this.form.controls['gender'].value,
+      FieldId: this.form.controls['fieldId'].value,
+      GraduateYear: this.form.controls['graduateYears'].value,
+      PhoneNumber: this.form.controls['phoneNumber'].value,
+      Dob: this.form.controls['dob'].value,
+      ProStatus: this.form.controls['proStatus'].value,
+      CompanyId: this.form.controls['company'].value,
+      Position: this.form.controls['position'].value,
+      Contrat: this.form.controls['contrat'].value,
+      UserLocation: this.form.controls['localisation'].value,
+      AlmUserId: '',
+      Companylocalisation: '',
+      WhatsappNumber: this.form.controls['phoneNumber'].value,
+      ImageDirectory: ''
     };
     var url = environment.baseUrl + 'api/v1.0/AlmUser/ajouter';
 
     this.http
-      .post<AlmUser>(url, user)
+      .post<IAlmUser>(url, user)
       .subscribe(result => {
 
-        console.log("L'utilisateur" + result.firtname + "nous a rejoint");
+        console.log("L'utilisateur" + result.Firtname + "nous a rejoint");
       }, error => console.error(error));
   }
 

@@ -30,7 +30,7 @@
           <h6 class="mb-0">Anciens</h6>
         </div>
         <div class="flex-none w-1/2 max-w-full px-1 text-right">
-          <a routerLink="add" class="inline-block items-center px-6 py-1 font-bold text-center text-white uppercase align-middle bg-violet-600 rounded-lg cursor-pointer leading-pro text-size-xs shadow-soft-md bg-150 bg-gradient-to-r hover:shadow-soft-xs tracking-tight-soft bg-x-25">
+          <a routerLink="alumni/add-user" class="inline-block items-center px-6 py-1 font-bold text-center text-white uppercase align-middle bg-violet-600 rounded-lg cursor-pointer leading-pro text-size-xs shadow-soft-md bg-150 bg-gradient-to-r hover:shadow-soft-xs tracking-tight-soft bg-x-25">
             <i class="fas fa-plus"> </i>
             <span>Ajouter</span>
           </a>
@@ -74,21 +74,21 @@
                   ></div>
                 </div>
                 <div>
-                  <p class="font-semibold">{{almUser.firtname}} {{almUser.lastname}}</p>
+                  <p class="font-semibold">{{almUser.Firtname}} {{almUser.Lastname}}</p>
                   <p class="text-xs text-gray-600 dark:text-gray-400">
-                    {{almUser.position}}
+                    {{almUser.Position}}
                   </p>
                 </div>
               </div>
             </td>
             <td class="px-4 py-3 text-sm">
-              {{almUser.phoneNumber}}
+              {{almUser.PhoneNumber}}
             </td>
             <td class="px-4 py-3 text-sm">
-              {{ almUser.proStatus }}
+              {{ almUser.ProStatus }}
             </td>
             <td class="px-4 py-3 text-sm">
-              {{ almUser.localisation}}
+              {{ almUser.UserLocation}}
             </td>
             <td class="px-2 py-3 text-sm">
               <!-- Table dropdown-->

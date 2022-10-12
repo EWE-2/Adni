@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 import { HttpClient } from '@angular/common/http';
 import { createPopper } from '@popperjs/core';
 import { environment } from 'src/environments/environment';
-import { Employee } from 'src/app/models/employee';
+import { IEmployee } from 'src/app/models/employee';
 
 @Component({
   selector: 'app-employees-list',
@@ -10,7 +10,7 @@ import { Employee } from 'src/app/models/employee';
   styleUrls: ['./employees-list.component.css']
 })
 export class EmployeesListComponent implements OnInit {
-  public employees?: Employee[];
+  public employees?: IEmployee[];
   public status: Status[] = [
     { color: 'green', text: 'En ligne'},
     { color: 'red', text: 'Hors ligne'}
@@ -41,7 +41,7 @@ export class EmployeesListComponent implements OnInit {
   //table dropdown: End
 
   constructor(private http: HttpClient) {
-    http.get<Employee[]>(environment.baseUrl + 'api/v1.0/Employies').subscribe(result => {
+    http.get<IEmployee[]>(environment.baseUrl + 'api/v1.0/Employies').subscribe(result => {
       this.employees = result;
     }, error => console.error(error));
    }

@@ -1,1 +1,111 @@
-<p>add-alumni-user works!</p>
+<div class="container px-6 mx-auto grid">
+  <h2 class="my-6 text-2xl font-semibold text-slate-700 dark:text-slate-200">
+    Alumni
+  </h2>
+
+  <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md max-w-full lg:flex-none dark:bg-slate-800">
+    <form class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
+      <div>
+          <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Nom</label>
+          <input formControlName="firtname" type="text" placeholder="EWANE" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+      </div>
+
+      <div>
+          <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Prenom</label>
+          <input formControlName="lastname" type="text" placeholder="ewane" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+      </div>
+
+      <div>
+          <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Sexe</label>
+          <select formControlName="gender" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40">
+            <option disable>Sexe</option>
+            <option>M</option>
+            <option>F</option>
+          </select>
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Numero de telephone</label>
+        <input formControlName="phoneNumber" type="text" placeholder="XXX-XX-XXXX-XXX" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+      </div>
+
+      <div>
+          <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email</label>
+          <input formControlName="email" type="email" placeholder="ewaneewane@example.com" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+      </div>
+
+      <div>
+          <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Date de naissance</label>
+          <input formControlName="dob" type="date" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+      </div>
+
+      <!--Informations professionnelles-->
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Annee d'obtention du diplome</label>
+        <input formControlName="graduateYears" type="number" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Filiere d'etude</label>
+        <select formControlName="fieldId" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40">
+          <option disable>Selectionner une filiere</option>
+          <option>Genie Informatique et Telecoms - GIT</option>
+          <option>Technologie de Construction Industrielle - TCI</option>
+          <option>Genie Civil - GC</option>
+          <option>Genie Maritime et Portuaire - GMP</option>
+          <option>Genie Automobile et Mecatronique - GAM</option>
+          <option>Genie des Procedes - GP</option>
+          <option>Genie Electrique et Systeme Intelligent - GESI (ex-ROI)</option>
+          <option>Genie Energetique - GE</option>
+          <option>HSI</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Statut professionnel</label>
+        <select formControlName="proStatus" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40">
+          <option disable>Selectionez un statut</option>
+          <option>Employé</option>
+          <option>Freelance</option>
+          <option>Employeur</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Entreprise Hote</label>
+        <input formControlName="company" type="text" placeholder="Entreprise" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Lieu</label>
+        <input formControlName="localisation" type="text" placeholder="Localisation" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Poste</label>
+        <input type="text" placeholder="Poste" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+      </div>
+
+      <div>
+        <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200">Contrat</label>
+        <select formControlName="contrat" class="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40">
+          <option disable>Type de contrat</option>
+          <option>CDI</option>
+          <option>CDD</option>
+        </select>
+      </div>
+
+      <button type="submit" class="flex col-span-2 items-center justify-between w-1/4 px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-violet-600 rounded-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-50">
+          <span>S'enregistrer </span>
+
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd" />
+          </svg>
+      </button>
+    </form>
+
+  </div>
+
+</div>

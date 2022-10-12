@@ -6,6 +6,7 @@ import { EmployeeDetailsComponent } from './features/admin/Employee/employee-det
 import { EmployeesListComponent } from './features/admin/Employee/employees-list/employees-list.component';
 import { AddEnterpriseComponent } from './features/admin/entreprise/add-enterprise/add-enterprise.component';
 import { EnterpriseDetailsComponent } from './features/admin/entreprise/enterprise-details/enterprise-details.component';
+import { EntrepriseListComponent } from './features/admin/entreprise/entreprise-list/entreprise-list.component';
 import { EntrepriseComponent } from './features/admin/entreprise/entreprise.component';
 import { UpdateEnterpriseComponent } from './features/admin/entreprise/update-enterprise/update-enterprise.component';
 import { AddAlumniUserComponent } from './features/admin/insertion-pro/add-alumni-user/add-alumni-user.component';
@@ -54,10 +55,16 @@ const routes: Routes = [
       { path: 'employees/details/{:id}', component: EmployeeDetailsComponent},
       // { path: 'employee/update/{:id}' },
       /*companies endpoints*/
-      { path: 'companies', component: EntrepriseComponent },
-      { path: 'company/add', component: AddEnterpriseComponent },
-      { path: 'company/update/{:id}', component: UpdateEnterpriseComponent },
-      { path: 'company/details/{:id}', component: EnterpriseDetailsComponent },
+      {
+        path: 'companies',
+        component: EntrepriseComponent,
+        children: [
+          { path: '', component: EntrepriseListComponent },
+          { path: 'add', component: AddEnterpriseComponent },
+          { path: 'update/{:id}', component: UpdateEnterpriseComponent },
+          { path: 'details/{:id}', component: EnterpriseDetailsComponent },
+        ],
+      },
       /** insertion professionnelle */
       { path: 'inspro', component: InsertionProComponent },
       { path: 'inspro/alumni/add-user', component: AddAlumniUserComponent },
