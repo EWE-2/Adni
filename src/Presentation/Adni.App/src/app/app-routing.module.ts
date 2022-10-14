@@ -49,7 +49,7 @@ const routes: Routes = [
     path: 'admin',
     component: AdminlayoutComponent,
     children: [
-      { path: '', component: DashboardFeatureComponent },
+      { path: 'board', component: DashboardFeatureComponent },
       { path: 'employees', component: EmployeesListComponent },
       { path: 'employees/add', component: AddEmployeeComponent },
       { path: 'employees/details/{:id}', component: EmployeeDetailsComponent},
