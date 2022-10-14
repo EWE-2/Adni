@@ -45,6 +45,9 @@ public class ImportAlmUserCommandHandler : IRequestHandler<ImportAlmUserCommand,
         //nombre de lignes vides avant arret de l'importation: arret apres 3 lignes vides
         int vRowLimit = 0;
 
+        //Identifiant de la filiere
+        Guid ui = new Guid();
+
         //iteration sur les occurences de la feuille
         for (int nRow = 6; nRow <= nEndRow; nRow++)
         {
@@ -70,6 +73,7 @@ public class ImportAlmUserCommandHandler : IRequestHandler<ImportAlmUserCommand,
             var position = row[nRow, 19].GetValue<string>();
             var contrat = row[nRow, 21].GetValue<string>();
             var localisation = row[nRow, 23].GetValue<string>();
+            var field = row[nRow, 9].GetValue<string>();
 
             //si l'utilisateur existe, passer
             if (almUserNames.ContainsKey(firstname))
@@ -77,7 +81,37 @@ public class ImportAlmUserCommandHandler : IRequestHandler<ImportAlmUserCommand,
             if (almUserNames.ContainsKey(email))
                 continue;
 
-
+            //repartir l'utilisateur dans les filieres
+            switch (field)
+            {
+                case "TTIC":
+                    ui = new Guid("04a083bd-2b54-4861-90a7-1d55ea874393");
+                    break;
+                case "ROI":
+                    ui = new Guid("f205d735-598f-43c2-93e8-0db5cc63a63a");
+                    break;
+                case "TCI":
+                    ui = new Guid("8b4350b2-417a-412a-a6cd-459aa148b32e");
+                    break;
+                case "HSSI":
+                    ui = new Guid("b55fcfdb-d636-4c4d-8d26-53ac9ee55e04");
+                    break;
+                case "TAU":
+                    ui = new Guid("f7f1d334-7af0-4bcd-ab59-72dafd79f7e2");
+                    break;
+                case "GCI":
+                    ui = new Guid("3e4cc7d6-62a5-41a0-8936-d75fa87a59bc");
+                    break;
+                case "PEI":
+                    ui = new Guid("9ea061ac-63a2-4cf7-935d-a60cd0d17b7f");
+                    break;
+                case "PEI/GM":
+                    ui = new Guid("9ea061ac-63a2-4cf7-935d-a60cd0d17b7f");
+                    break;
+                default:
+                    ui = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afb2");
+                    break;
+            }
             var command = new Domain.Entities.AlmUser
             {
                 //UserName = (!(firstname == null))?firstname:"default",
@@ -93,12 +127,12 @@ public class ImportAlmUserCommandHandler : IRequestHandler<ImportAlmUserCommand,
                 Firstname = firstname,
                 Lastname = "",
                 Gender = gender,
-                FieldId = new Guid("92004546-2065-457f-affc-0c39fc371fe6"),
+                FieldId = new Guid(),
                 GraduateYear = graduateYear,
                 PhoneNumber = phoneNumber,
                 Dob = "Today",
                 ProStatus = (!(proStatus == null)) ? proStatus : "Employee",
-                CompanyId = new Guid("5d05ae49-bff7-43e7-87fa-53d80743101c"),
+                CompanyId = new Guid(companyName),
                 Position = (!(position == null)) ? position : "Undefined",
                 Contrat = (!(contrat == null)) ? contrat: "CDD",
                 UserLocation = (!(localisation == null)) ? localisation: "Unknow"

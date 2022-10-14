@@ -21,12 +21,23 @@ export class DashboardFeatureComponent implements OnInit {
   /**============= Number of students for students card in the dashboard ==============*/
   // services import
   public stdCount! : number;
+  public errMsg: string = '';
+  public compCount!: number;
 
-  constructor(private studentCountService: DashboardEltsService) { }
+  constructor(private dashboadService: DashboardEltsService) { }
 
   ngOnInit(): void {
-    this.stdCount = this.studentCountService.countStudents();
+    this.dashboadService.getStudents().subscribe({
+      next: students => this.stdCount = students.length,
+      error: err => this.errMsg += err
+    });
     console.log(5);
+    this.dashboadService.getCompanies().subscribe({
+      next: companies => {
+        this.compCount = companies.length;
+      },
+      error: err => this.errMsg = err
+    });
   }
 
   //
