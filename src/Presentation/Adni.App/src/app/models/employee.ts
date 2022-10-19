@@ -1,13 +1,18 @@
-export interface Employee {
-  isOnline: boolean;
-  role: string;
-  firstname: string;
-  lastname: string;
-  email: string;
-  username: string;
-  password: string;
-  location: string;
-  phonenumber: string;
-  whatsappNumber: string;
-  doB: string
+export interface IEmployee {
+  EmployeeId: string;
+  IsOnline: boolean;
+  Role: string;
+  EmployeesListId: string;
+  UserName: string;
+  Email: string;
+  NormalizedEmail: string;
+  PasswordHash: string;
+  Firstname: string;
+  Lastname: string;
+  Gender: string;
+  PhoneNumber: string;
+  WhatsappNumber: string;
+  Dob: string
+  UserLocation: string;
+  ImageDirectory: string;
 }

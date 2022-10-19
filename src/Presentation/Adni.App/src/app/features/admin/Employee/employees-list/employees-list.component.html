@@ -39,22 +39,22 @@
     </div>
     <div class="w-full overflow-x-auto">
       <!-- Loading-->
-      <div *ngIf="!employees" class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-violet-500" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
       <table *ngIf="employees" class="w-full whitespace-no-wrap">
         <thead>
           <tr
-            class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-t border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+          class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-t border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
           >
-            <th class="px-4 py-3">Identité</th>
-            <th class="px-4 py-3">Localisation</th>
-            <th class="px-4 py-3">Statut</th>
-            <th class="px-4 py-3">Connecté le</th>
-            <th class="px-4 py-3">actions</th>
-          </tr>
-        </thead>
-        <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+          <th class="px-4 py-3">Identité</th>
+          <th class="px-4 py-3">Localisation</th>
+          <th class="px-4 py-3">Statut</th>
+          <th class="px-4 py-3">Connecté le</th>
+          <th class="px-4 py-3">actions</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+          <div *ngIf="!employees" class="spinner-grow inline-block w-8 h-8 bg-current rounded-full opacity-0 text-violet-500" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
           <tr *ngFor="let employee of employees" class="text-gray-700 border-r border-l dark:text-gray-400">
             <td class="px-4 py-3">
               <div class="flex items-center text-sm">
@@ -74,24 +74,24 @@
                   ></div>
                 </div>
                 <div>
-                  <p class="font-semibold">{{employee.firstname}} {{employee.lastname}}</p>
+                  <p class="font-semibold">{{employee.Firstname}} {{employee.Lastname}}</p>
                   <p class="text-xs text-gray-600 dark:text-gray-400">
-                    {{employee.role}}
+                    {{employee.Role}}
                   </p>
                 </div>
               </div>
             </td>
             <td class="px-4 py-3 text-sm">
-              {{employee.location}}
+              {{employee.UserLocation}}
             </td>
-            <td class="px-4 py-3 text-xs" *ngIf="employee.isOnline == false">
+            <td class="px-4 py-3 text-xs" *ngIf="employee.IsOnline == false">
               <span
                 class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:bg-red-700 dark:text-red-100"
               >
               {{status[1].text}}
               </span>
             </td>
-            <td class="px-4 py-3 text-xs" *ngIf="employee.isOnline">
+            <td class="px-4 py-3 text-xs" *ngIf="employee.IsOnline">
               <span
                 class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
               >

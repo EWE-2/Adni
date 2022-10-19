@@ -80,7 +80,7 @@ public class FileService : IFileService
             var file = _context.fileDetails.Where(x => x.Id == Id).FirstOrDefaultAsync();
             var content = new System.IO.MemoryStream(file.Result.Data);
             var path = Path.Combine(
-               Directory.GetCurrentDirectory(), "Imports",
+               Directory.GetCurrentDirectory(), "\\Imports",
                file.Result.FileName);
             await CopyStream(content, path);
         }

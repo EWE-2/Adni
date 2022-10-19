@@ -37,6 +37,8 @@ namespace Adni.Application.Field.Command.UpdateFieldCommand
             entity.FieldName = request.FieldName;
             entity.DepartmentId = request.DepartmentId;
 
+            await _context.SaveChangesAsync(cancellationToken);
+
             return Unit.Value;
         }
     }

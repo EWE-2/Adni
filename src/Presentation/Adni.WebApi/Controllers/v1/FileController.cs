@@ -7,11 +7,9 @@ using Adni.Data.Contexts;
 using System.Threading;
 using Adni.Application.Dtos.File;
 
-namespace Adni.WebApi.Controllers.v2
+namespace Adni.WebApi.Controllers.v1
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class FileController : ApiControllerv2
+    public class FileController : ApiController
     {
         private readonly IFileService _fileService;
         private readonly ApplicationDbContext _context;

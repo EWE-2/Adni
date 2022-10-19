@@ -1,29 +1,33 @@
-export interface AlmUser {
-  userName: string;
-  email: string;
-  normalizedEmail: string;
-  passwordHash: string;
-  firtname: string;
-  lastname: string;
-  gender: string;
-  fieldId: string;
-  graduateYear: string;
-  phoneNumber: string;
-  dob: string;
-  proStatus: string;
-  companyId: string;
-  position: string;
-  contrat: string;
-  localisation: string;
+export interface IAlmUser {
+  AlmUserId: string;
+  FieldId: string;
+  GraduateYear: string;
+  ProStatus: string;
+  CompanyId: string;
+  Position: string;
+  Contrat: string;
+  Companylocalisation: string;
+  UserName: string;
+  Email: string;
+  NormalizedEmail: string;
+  PasswordHash: string;
+  Firtname: string;
+  Lastname: string;
+  Gender: string;
+  PhoneNumber: string;
+  WhatsappNumber: string;
+  Dob: string;
+  UserLocation: string;
+  ImageDirectory: string;
 }
 
-enum ProStatus{
+export enum ProStatus{
   Employe,
   Freelance,
   Stage
 }
 
-enum Contrat{
+export enum Contrat{
   CDI,
   CDD
 }

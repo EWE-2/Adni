@@ -1,16 +1,16 @@
-import { environment } from 'src/environments/environment';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { IAlmUser } from 'src/app/models/AlmUser';
 import { createPopper } from '@popperjs/core';
+import { ICompany } from 'src/app/models/Company';
 
 @Component({
-  selector: 'app-insertion-pro',
-  templateUrl: './insertion-pro.component.html',
-  styleUrls: ['./insertion-pro.component.css']
+  selector: 'app-entreprise-list',
+  templateUrl: './entreprise-list.component.html',
+  styleUrls: ['./entreprise-list.component.css']
 })
-export class InsertionProComponent implements OnInit {
-  public almUsers?: IAlmUser[];
+export class EntrepriseListComponent implements OnInit {
+  public companies?: ICompany[];
+
+  constructor() { }
 
   //Table dropdown
   dropdownPopoverShow = false;
@@ -35,12 +35,6 @@ export class InsertionProComponent implements OnInit {
     }
   }
   //table dropdown: End
-
-  constructor(private http: HttpClient) {
-    http.get<IAlmUser[]>(environment.baseUrl + "api/v1.0/AlmUser").subscribe( result => {
-      this.almUsers = result;
-    }, error => console.error(error));
-  }
 
   ngOnInit(): void {
   }

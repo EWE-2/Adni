@@ -10,7 +10,6 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
     public class AddEmployeeCommand : IRequest<Guid>
     {
         //Identity user informations
-        public Guid EmployeeId { get; set; }
         public string? UserName { get; set; }
         public string Email { get; set; }
         public string NormalizedEmail { get; set; }
@@ -43,7 +42,6 @@ namespace Adni.Application.Employies.Commands.AddEmployeeCommand
         {
             var emplEntity = new Employee
             {
-                EmployeeId = request.EmployeeId,
                 UserName = request.UserName,
                 Email = request.Email,
                 NormalizedEmail = request.NormalizedEmail,

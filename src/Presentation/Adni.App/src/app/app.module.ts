@@ -49,6 +49,8 @@ import { ImportAlmuserComponent } from './features/admin/insertion-pro/import-al
 import { ProfileMenuDropdownComponent } from './components/admin/dropdown/profile-menu-dropdown/profile-menu-dropdown.component';
 import { NotificationsDropdownComponent } from './components/admin/dropdown/notifications-dropdown/notifications-dropdown.component';
 import { CheminComponent } from './components/admin/chemin/chemin.component';
+import { EntrepriseListComponent } from './features/admin/entreprise/entreprise-list/entreprise-list.component';
+import { AlumniListComponent } from './features/admin/insertion-pro/alumni-list/alumni-list.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +95,9 @@ import { CheminComponent } from './components/admin/chemin/chemin.component';
     ImportAlmuserComponent,
     ProfileMenuDropdownComponent,
     NotificationsDropdownComponent,
-    CheminComponent
+    CheminComponent,
+    EntrepriseListComponent,
+    AlumniListComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, AppRoutingModule, NgChartsModule, ReactiveFormsModule

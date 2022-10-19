@@ -38,7 +38,7 @@ namespace Adni.WebApi.Controllers.v1
             return NoContent();
         }
 
-        [HttpPut("modifier")]
+        [HttpPut("modifier/{id}")]
         public async Task<ActionResult> Update(System.Guid id, UpdateFieldCommand command)
         {
             if (id != command.FieldId)
